@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Anton:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Encode+Sans+Condensed:wght@300;700&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="social-links">
+    <a href="https://github.com" target="_blank" title="GitHub">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+        </svg>
+    </a>
+    <a href="https://linkedin.com" target="_blank" title="LinkedIn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+        </svg>
+    </a>
+    <a href="https://twitter.com" target="_blank" title="Twitter">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+        </svg>
+    </a>
+    <a href="https://instagram.com" target="_blank" title="Instagram">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+        </svg>
+    </a>
+    <a href="mailto:contact@example.com" target="_blank" title="Email">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636C.732 21.002 0 20.27 0 19.366V5.457c0-.887.729-1.636 1.636-1.636h.727L12 10.248l9.637-6.427h.727C23.268 3.821 24 4.57 24 5.457z"/>
+        </svg>
+    </a>
+    <div class="social-line"></div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<!-- ========================================================================== -->
+    <!-- NAVBAR -->
+    <!-- ========================================================================== -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <button class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <a href="#" class="nav-logo">
+                <img src="images/website-logo.png" alt="">
+            </a>
+
+            <ul class="nav-menu" id="navMenu">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link">HOME</a>
+                </li>
+                
+                <li class="nav-item nav-item-order">
+                    <a href="#order" class="nav-link has-dropdown">ORDER</a>
+                    <div class="dropdown">
+                        <div class="dropdown-item">
+                            <a href="#online-order">Order Online</a>
+                        </div>
+                        <div class="dropdown-item">
+                            <a href="#catering">Catering</a>
+                        </div>
+                        <div class="dropdown-item">
+                            <a href="#delivery">Delivery Options</a>
+                        </div>
+                    </div>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="#products" class="nav-link has-dropdown">PRODUCTS</a>
+                    <div class="dropdown">
+                        <div class="dropdown-item">
+                            <a href="#breads">Artisan Breads</a>
+                        </div>
+                        <div class="dropdown-item">
+                            <a href="#pastries">Pastries</a>
+                        </div>
+                        <div class="dropdown-item">
+                            <a href="#cakes">Cakes</a>
+                        </div>
+                        <div class="dropdown-item">
+                            <a href="#seasonal">Seasonal Items</a>
+                        </div>
+                    </div>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="#hours" class="nav-link has-dropdown">OUR HOURS</a>
+                    <div class="dropdown">
+                        <div class="dropdown-item">
+                            <a href="#store-hours">Store Hours</a>
+                        </div>
+                        <div class="dropdown-item">
+                            <a href="#holiday-hours">Holiday Hours</a>
+                        </div>
+                    </div>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="#about" class="nav-link has-dropdown">ABOUT US</a>
+                    <div class="dropdown">
+                        <div class="dropdown-item">
+                            <a href="#our-story">Our Story</a>
+                        </div>
+                        <div class="dropdown-item">
+                            <a href="#team">Our Team</a>
+                        </div>
+                        <div class="dropdown-item">
+                            <a href="#location">Location</a>
+                        </div>
+                        <div class="dropdown-item">
+                            <a href="#contact">Contact</a>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="nav-item navbar-button-desktop">
+                    <a href="">Let's Get Started</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- Spacer to prevent content from hiding under fixed navbar -->
+    <div class="navbar-spacer"></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- ========================================================================== -->
+    <!-- LANDING SECTION -->
+    <!-- ========================================================================== -->
+    <section id="landing">
+        <div class="landing-intro">
+            <!-- First part: "We All Strive For Greatness Let's Achieve Ours" -->
+            <div class="we-all-strive">
+                <h1 data-scroll-slide="right" data-scroll-smooth="true" data-scroll-multiplier="0.1"><div class="container"><div class="animate slide-down-fast">We</div></div></h1>
+                <h1 data-scroll-slide="right" data-scroll-smooth="true" data-scroll-multiplier="0.1"><div class="container"><div class="animate slide-down-fast">All Strive</div></div></h1>
+            </div>
+            
+            <div class="for-greatness-lets">
+                <h1 class="outline-text"><div class="container"><div class="animate slide-up-fast">For Greatness</div></div></h1>
+                <h1 class="outline-text" data-scroll-slide="right" data-scroll-smooth="true" data-scroll-multiplier="0.3"><div class="container"><div class="animate slide-up-fast">Let's</div></div></h1>
+            </div>
+            
+            <div class="achieve-together">
+                <h1 class="outline-text"><div class="container"><div class="animate slide-up-fast">Adapt</div></div></h1>
+                <div class="together-container">
+                    <div class="growing-dash" id="growingDash"></div>
+                    <h1 class="together-text" data-scroll-slide="left" data-scroll-smooth="true" data-scroll-multiplier="0.3"><div class="container"><div class="animate slide-down-fast">Together</div></div></h1>
+                </div>
+            </div>
+            
+            <!-- Second part: "In the growing world of technology" - Right aligned -->
+            <h1 class="right-aligned"><div class="container"><div class="animate slide-down-fast">In the growing</div></div></h1>
+            <h1 class="right-aligned" data-scroll-slide="left" data-scroll-smooth="true" data-scroll-multiplier="0.3"><div class="container"><div class="animate slide-down-fast">World of</div></div></h1>
+            <h1 class="outline-text right-aligned" data-scroll-slide="left" data-scroll-smooth="true" data-scroll-multiplier=".4"><div class="container unhide"><div class="animate slide-up-fast">technology</div></div></h1>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- ========================================================================== -->
+    <!-- WORK EXPERIENCE -->
+    <!-- ========================================================================== -->
+    <section id="myExperience">
+        <div class="experience-header">
+            <h2>My work <span>experience</span></h2>
+        </div>
+
+        <div class="experience-wrapper">
+            <!-- GOVERNORS STATE HELP DESK -->
+            <div class="experience-container">
+                <div class="experience-visual">
+                    <div class="governors-scene">
+                        <div class="governors-monitor">
+                        <div class="governors-screen">
+                            <img src="images/coding.gif" alt="">
+                        </div>
+                        <div class="stand"></div>
+                        <div class="base"></div>
+                        </div>
+
+                        <!-- Toolbox -->
+                        <div class="toolbox">
+                        <div class="toolbox-handle"></div>
+                        <div class="toolbox-box">
+                            <div class="cross-wrapper">
+                            <div class="cross"></div>
+                            </div>
+                        </div>
+                        <div class="toolbox-bottom">
+                            <div class="toolbox-bottom-left"></div>
+                            <div class="toolbox-bottom-right"></div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="experience-info">
+                    <div class="experience-info-position">
+                        <span>2021-2024</span>
+                        <span>Governors State University</span>
+                    </div>
+                    <h3>IT Help Desk</h3>
+                    <p>My very first job in the world of technology which taught me the in's and out's of working with computers, a team, and customers. </p>
+                    <ul class="experience-info-tasks">
+                        <li>Assisting Students, Profesors, and Staff with technology issues</li>
+                        <li>Installed software on classroom computers to ensure computers were secure and safe for students.</li>
+                        <li>Submitted tickets for issues over the phone such as password reset and 2-factor authentication.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- MORAINE VALLEY HELP DESK -->
+            <div class="experience-container">
+                <div class="experience-visual">
+                    <div class="moraine-scene">
+                        <div class="circular-container">
+                            <div class="connecting-circle"></div>
+                            <div class="center-circle"></div>
+
+                            <!-- Orbit wrapper for rotation -->
+                            <div class="orbit">
+                                <div class="outer-circle">1</div>
+                                <div class="outer-circle">2</div>
+                                <div class="outer-circle">3</div>
+                                <div class="outer-circle">4</div>
+                                <div class="outer-circle">5</div>
+                                <div class="outer-circle">6</div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="experience-info">
+                    <div class="experience-info-position">
+                        <span>2024-2025</span>
+                        <span>Moraine Valley</span>
+                    </div>
+                    <h3>IT Help Desk</h3>
+                    <p>My very first job in the world of technology which taught me the in's and out's of working with computers, a team, and customers. </p>
+                    <ul class="experience-info-tasks">
+                        <li>Assisting Students, Profesors, and Staff with technology issues</li>
+                        <li>Installed software on classroom computers to ensure computers were secure and safe for students.</li>
+                        <li>Submitted tickets for issues over the phone such as password reset and 2-factor authentication.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- METROPOLITION FAMILY CENTER -->
+            <div class="experience-container">
+                <div class="experience-visual">
+                <div class="family-center-scene">
+
+
+
+
+
+
+                    <!-- Toolbox -->
+                    <div class="family-center-tab">
+                        <div class="family-center-tab-container">
+                            <div class="family-center-tab-container-1"></div>
+                            <div class="family-center-tab-container-2"></div>
+                            <div class="family-center-tab-container-3"></div>
+                        </div>
+                    </div>
+                    <div class="family-center-monitor">
+                        <div class="family-center-screen">
+                            <div class="family-center-edit"></div>
+                            <div class="family-center-dashboard">
+                                <div class="family-center-dashboard-video">
+                                    <img src="images/Untitled design (1).svg" alt="">
+                                </div>
+                                <div class="family-center-dashboard-container">
+                                    <div class="family-center-dashboard-container-1"></div>
+                                    <div class="family-center-dashboard-container-2"></div>
+                                    <div class="family-center-dashboard-container-3"></div>
+                                    <div class="family-center-dashboard-container-4"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    
+                </div>
+            </div>
+
+                <div class="experience-info">
+                    <div class="experience-info-position">
+                        <span>2025 - Present</span>
+                        <span>Metropoliton Services</span>
+                    </div>
+                    <h3>Graphic Designer</h3>
+                    <p>My very first job in the world of technology which taught me the in's and out's of working with computers, a team, and customers. </p>
+                    <ul class="experience-info-tasks">
+                        <li>Assisting Students, Profesors, and Staff with technology issues</li>
+                        <li>Installed software on classroom computers to ensure computers were secure and safe for students.</li>
+                        <li>Submitted tickets for issues over the phone such as password reset and 2-factor authentication.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- ECLIPSE WEB DEVELOPMENT -->
+            <div class="experience-container">
+                <div class="experience-visual">
+                <div class="eclipse-scene">
+                    <div class="governors-monitor">
+                    <div class="eclipse-screen">
+                        <img src="images/coding.gif" alt="">
+                    </div>
+                    </div>
+
+                    <!-- Toolbox -->
+                    <div class="eclipse-phone">
+                        <div class="eclipse-phone-container">
+                            <div class="eclipse-phone-screen">
+                                <div class="eclipse-phone-top"></div>
+                                <div class="eclipse-row-1"></div>
+                                <div class="eclipse-row-2">
+                                    <div class="eclipse-row-2-1"></div>
+                                    <div class="eclipse-row-2-2"></div>
+                                </div>
+                                <div class="eclipse-row-3">
+                                    <div class="eclipse-row-3-1"></div>
+                                    <div class="eclipse-row-3-2"></div>
+                                </div>
+                                <div class="eclipse-row-4"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+                <div class="experience-info">
+                    <div class="experience-info-position">
+                        <span>2025 - Present</span>
+                        <span>Eclipse Web Dev</span>
+                    </div>
+                    <h3>Web Developer</h3>
+                    <p>My very first job in the world of technology which taught me the in's and out's of working with computers, a team, and customers. </p>
+                    <ul class="experience-info-tasks">
+                        <li>Assisting Students, Profesors, and Staff with technology issues</li>
+                        <li>Installed software on classroom computers to ensure computers were secure and safe for students.</li>
+                        <li>Submitted tickets for issues over the phone such as password reset and 2-factor authentication.</li>
+                    </ul>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+    <!-- ========================================================================== -->
+    <!-- ABOUT ME -->
+    <!-- ========================================================================== -->
+    <section id="aboutMe">
+        <!-- About Me Visual -->
+
+        <!-- About Me Intro -->
+        <div class="about-intro">
+            <h2>Design Focused, <span>Executed Professionally</span></h2>
+            <p>At Design In DC, we blend creativity, strategy, and execution to help brands thrive—think of us as your creative growth partner. Rooted in Washington, DC, we craft bold branding, high-impact websites, and marketing strategies that drive real results. Our team blends creativity with data-driven execution, ensuring every project isn’t just visually stunning but also built for long-term success. Whether you’re a startup or an established enterprise, we deliver solutions that drive real impact</p>
+        </div>
+        <!-- About Me Containers -->
+         <div class="about-container-wrapper">
+            <!-- Fully Responsive Websites -->
+            <div class="about-container">
+                <div class="about-container-img">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M14 18V20L16 21V22H8L7.99639 21.0036L10 20V18H2.9918C2.44405 18 2 17.5511 2 16.9925V4.00748C2 3.45107 2.45531 3 2.9918 3H21.0082C21.556 3 22 3.44892 22 4.00748V16.9925C22 17.5489 21.5447 18 21.0082 18H14ZM4 5V14H20V5H4Z"></path></svg>
+                </div>
+                <div class="about-container-info">
+                    <h4>Fully Responsive Websites</h4>
+                    <p>Prioritizing visuals and usability to create a strong online presence.</p>
+                </div>
+            </div>
+            <!-- Design First Approach -->
+            <div class="about-container">
+                <div class="about-container-img">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M4.7134 7.12811L4.46682 7.69379C4.28637 8.10792 3.71357 8.10792 3.53312 7.69379L3.28656 7.12811C2.84706 6.11947 2.05545 5.31641 1.06767 4.87708L0.308047 4.53922C-0.102682 4.35653 -0.102682 3.75881 0.308047 3.57612L1.0252 3.25714C2.03838 2.80651 2.84417 1.97373 3.27612 0.930828L3.52932 0.319534C3.70578 -0.106511 4.29417 -0.106511 4.47063 0.319534L4.72382 0.930828C5.15577 1.97373 5.96158 2.80651 6.9748 3.25714L7.69188 3.57612C8.10271 3.75881 8.10271 4.35653 7.69188 4.53922L6.93228 4.87708C5.94451 5.31641 5.15288 6.11947 4.7134 7.12811ZM18.2278 2.3713L13.2886 6.21289C9.34224 5.23923 5.55843 7.54646 4.5 11.4966C4.39826 11.8763 4.36647 12.262 4.33317 12.666C4.21829 14.0599 4.08554 15.6707 1 17.9966C3.5 19.4966 8 20.9984 11.5016 20.9984C14.8142 20.9984 17.8463 18.7896 18.7444 15.4377C19.0836 14.1719 19.0778 12.895 18.7847 11.7067L22.6253 6.76879C22.9349 6.3707 22.8997 5.80435 22.543 5.44774L19.5488 2.45355C19.1922 2.09694 18.6259 2.06168 18.2278 2.3713ZM16.8952 8.2852C16.8319 8.21952 16.7673 8.15494 16.7015 8.09149L15.5769 6.96685L18.7589 4.49198L20.5046 6.23774L18.0297 9.41972L16.8952 8.2852Z"></path></svg>
+                </div>
+                <div class="about-container-info">
+                    <h4>Design First Approach</h4>
+                    <p>Prioritizing visuals and usability for impactful online presence.</p>
+                </div>
+            </div>
+            <!-- Scalability & Flexibility -->
+            <div class="about-container">
+                <div class="about-container-img">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M19 8H21C21.5523 8 22 8.44772 22 9V21C22 21.5523 21.5523 22 21 22H13C12.4477 22 12 21.5523 12 21V20H4C3.44772 20 3 19.5523 3 19V3C3 2.44772 3.44772 2 4 2H18C18.5523 2 19 2.44772 19 3V8ZM17 8V4H5V18H12V9C12 8.44772 12.4477 8 13 8H17ZM14 10V20H20V10H14Z"></path></svg>
+                </div>
+                <div class="about-container-info">
+                    <h4>Scalability & Flexibility</h4>
+                    <p>Web solutions that seamlessly grow, adapt, and evolve with your needs.</p>
+                </div>
+            </div>
+            <!-- Always Eager To Learn -->
+            <div class="about-container">
+                <div class="about-container-img">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M9 4C10.1046 4 11 4.89543 11 6V12.8271C10.1058 12.1373 8.96602 11.7305 7.6644 11.5136L7.3356 13.4864C8.71622 13.7165 9.59743 14.1528 10.1402 14.7408C10.67 15.3147 11 16.167 11 17.5C11 18.8807 9.88071 20 8.5 20C7.11929 20 6 18.8807 6 17.5V17.1493C6.43007 17.2926 6.87634 17.4099 7.3356 17.4864L7.6644 15.5136C6.92149 15.3898 6.1752 15.1144 5.42909 14.7599C4.58157 14.3573 4 13.499 4 12.5C4 11.6653 4.20761 11.0085 4.55874 10.5257C4.90441 10.0504 5.4419 9.6703 6.24254 9.47014L7 9.28078V6C7 4.89543 7.89543 4 9 4ZM12 3.35418C11.2671 2.52376 10.1947 2 9 2C6.79086 2 5 3.79086 5 6V7.77422C4.14895 8.11644 3.45143 8.64785 2.94126 9.34933C2.29239 10.2415 2 11.3347 2 12.5C2 14.0652 2.79565 15.4367 4 16.2422V17.5C4 19.9853 6.01472 22 8.5 22C9.91363 22 11.175 21.3482 12 20.3287C12.825 21.3482 14.0864 22 15.5 22C17.9853 22 20 19.9853 20 17.5V16.2422C21.2044 15.4367 22 14.0652 22 12.5C22 11.3347 21.7076 10.2415 21.0587 9.34933C20.5486 8.64785 19.8511 8.11644 19 7.77422V6C19 3.79086 17.2091 2 15 2C13.8053 2 12.7329 2.52376 12 3.35418ZM18 17.1493V17.5C18 18.8807 16.8807 20 15.5 20C14.1193 20 13 18.8807 13 17.5C13 16.167 13.33 15.3147 13.8598 14.7408C14.4026 14.1528 15.2838 13.7165 16.6644 13.4864L16.3356 11.5136C15.034 11.7305 13.8942 12.1373 13 12.8271V6C13 4.89543 13.8954 4 15 4C16.1046 4 17 4.89543 17 6V9.28078L17.7575 9.47014C18.5581 9.6703 19.0956 10.0504 19.4413 10.5257C19.7924 11.0085 20 11.6653 20 12.5C20 13.499 19.4184 14.3573 18.5709 14.7599C17.8248 15.1144 17.0785 15.3898 16.3356 15.5136L16.6644 17.4864C17.1237 17.4099 17.5699 17.2926 18 17.1493Z"></path></svg>
+                </div>
+                <div class="about-container-info">
+                    <h4>Always Eager To Learn</h4>
+                    <p>Constantly evolving skills to deliver modern, creative, and effective results.</p>
+                </div>
+            </div>
+            <!-- Custom Coded Websites -->
+            <div class="about-container">
+                <div class="about-container-img">
+                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M3 3H21C21.5523 3 22 3.44772 22 4V20C22 20.5523 21.5523 21 21 21H3C2.44772 21 2 20.5523 2 20V4C2 3.44772 2.44772 3 3 3ZM16.4645 15.5355L20 12L16.4645 8.46447L15.0503 9.87868L17.1716 12L15.0503 14.1213L16.4645 15.5355ZM6.82843 12L8.94975 9.87868L7.53553 8.46447L4 12L7.53553 15.5355L8.94975 14.1213L6.82843 12ZM11.2443 17L14.884 7H12.7557L9.11597 17H11.2443Z"></path></svg>
+                </div>
+                <div class="about-container-info">
+                    <h4>Custom Coded Websites</h4>
+                    <p>Handcrafted solutions built from scratch with clean, efficient code.</p>
+                </div>
+            </div>
+            <!-- User Friendly Design -->
+            <div class="about-container">
+                <div class="about-container-img">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM7 12C7 14.7614 9.23858 17 12 17C14.7614 17 17 14.7614 17 12H15C15 13.6569 13.6569 15 12 15C10.3431 15 9 13.6569 9 12H7Z"></path></svg>
+                </div>
+                <div class="about-container-info">
+                    <h4>User Friendly Design</h4>
+                    <p>Intuitive layouts that ensure seamless navigation and enjoyable experiences.</p>
+                </div>
+            </div>
+         </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- ========================================================================== -->
+    <!-- PORTFOLIO -->
+    <!-- ========================================================================== -->
+     <section id="myPortfolio">
+        <div class="portfolio-intro">
+            <h2>Work That Make's Me <span>PROUD</span></h2>
+            <p>I'm committed to continuous improvement in all aspects of my work, from web design to coding. I maintain high standards and only deliver work that meets my exacting criteria. Whether it's creating fully custom coded/designed websites for clients or personal projects, I always strive to improve in every department.</p>
+        </div>
+        <!-- Rise & Loaf -->
+        <div class="portfolio-container-wrapper">
+            <a href="#" class="portfolio-container">
+                <div class="portfolio-container-img">
+                    <img src="images/web_homepage_mock.jpg" alt="">
+                    
+                    
+                    <div class="portfolio-overlay">
+                        <h4>View Project</h4>
+                    </div>
+
+
+                </div>
+                <div class="portfolio-container-info">
+                    <h3>Rise & Loaf</h3>
+                    <p>Web Design, Web Development, UX/UI Design, Client Support, Custom Logo, Custom Flyer, and Custom Video</p>
+                </div>
+            </a>
+            <!-- Eclipse Web Development -->
+            <a href="#" class="portfolio-container">
+                <div class="portfolio-container-img">
+                    <img src="images/web_homepage_mock.jpg" alt="">
+                </div>
+                <div class="portfolio-container-info">
+                    <h3>Rise & Loaf</h3>
+                    <p>Web Design, Web Development, UX/UI Design, Client Support, Custom Logo, Custom Flyer, and Custom Video</p>
+                </div>
+            </a>
+
+            <a href="#" class="portfolio-container">
+                <div class="portfolio-container-img">
+                    <img src="images/web_homepage_mock.jpg" alt="">
+                </div>
+                <div class="portfolio-container-info">
+                    <h3>Eclipse Web Development (Old)</h3>
+                    <p>Web Design, Web Development, UX/UI Design, Client Support, Custom Logo, Custom Flyer, and Custom Video</p>
+                </div>
+            </a>
+
+            <a href="#" class="portfolio-container">
+                <div class="portfolio-container-img">
+                    <img src="images/web_homepage_mock.jpg" alt="">
+                </div>
+                <div class="portfolio-container-info">
+                    <h3>Quality Paving & Maintenance</h3>
+                    <p>Web Design, Web Development, UX/UI Design, Client Support, Custom Logo, Custom Flyer, and Custom Video</p>
+                </div>
+            </a>
+
+            <a href="#" class="portfolio-container">
+                <div class="portfolio-container-img">
+                    <img src="images/web_homepage_mock.jpg" alt="">
+                </div>
+                <div class="portfolio-container-info">
+                    <h3>Pollo Locuas</h3>
+                    <p>Web Design, Web Development, UX/UI Design, Client Support, Custom Logo, Custom Flyer, and Custom Video</p>
+                </div>
+            </a>
+
+            <a href="#" class="portfolio-container">
+                <div class="portfolio-container-img">
+                    <img src="images/web_homepage_mock.jpg" alt="">
+                </div>
+                <div class="portfolio-container-info">
+                    <h3>Portfolio (Old)</h3>
+                    <p>Web Design, Web Development, UX/UI Design, Client Support, Custom Logo, Custom Flyer, and Custom Video</p>
+                </div>
+            </a>
+        </div>
+     </section>
+
+
+
+
+
+
+
+
+    <!-- ========================================================================== -->
+    <!-- CONTACT US -->
+    <!-- ========================================================================== -->
+     <section id="contactMe">
+        <div class="contact-intro">
+            <h2>I'm Just A Call <span>away</span></h2>
+        </div>
+
+        <div class="contact-divider"></div>
+        
+
+        <div class="fill-button">
+            <a href="">Let's Get Started</a>
+        </div>
+
+
+        <div class="contact-skills-wrapper">
+            
+            <div class="contact-skills-group">
+                <!-- Card One -->
+                <div class="contact-skills-container">
+                    <div class="contact-skills-info">
+                        <h3>Email Marketing</h3>
+                        <p>Nurture leads and convert customers with campaigns.</p>
+                    </div>
+                </div>
+                <!-- Card Two -->
+                <div class="contact-skills-container">
+                    <div class="contact-skills-info">
+                        <h3>Programming</h3>
+                        <p>Build efficient, tailored solutions that bring ideas to life.</p>
+                    </div>
+                </div>
+                <!-- Card Three -->
+                <div class="contact-skills-container">
+                    <div class="contact-skills-info">
+                        <h3>Web Design</h3>
+                        <p>Design sleek, responsive websites that drive results.</p>
+                    </div>
+                </div>
+                <!-- Card Four -->
+                <div class="contact-skills-container">
+                    <div class="contact-skills-info">
+                        <h3>Graphic Design</h3>
+                        <p>Create visuals that capture attention and elevate brands.</p>
+                    </div>
+                </div>
+                <!-- Card Five -->
+                <div class="contact-skills-container">
+                    <div class="contact-skills-info">
+                        <h3>IT Support</h3>
+                        <p>Keep systems running smoothly with reliable tech solutions.</p>
+                    </div>
+                </div>
+                <!-- Card Six -->
+                <div class="contact-skills-container">
+                    <div class="contact-skills-info">
+                        <h3>Video Editing</h3>
+                        <p>Craft engaging stories that connect and inspire viewers.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div aria-hidden class="contact-skills-group">
+                <!-- Card One -->
+                <div class="contact-skills-container">
+                    <div class="contact-skills-info">
+                        <h3>Email Marketing</h3>
+                        <p>Nurture leads and convert customers with campaigns.</p>
+                    </div>
+                </div>
+                <!-- Card Two -->
+                <div class="contact-skills-container">
+                    <div class="contact-skills-info">
+                        <h3>Programming</h3>
+                        <p>Build efficient, tailored solutions that bring ideas to life.</p>
+                    </div>
+                </div>
+                <!-- Card Three -->
+                <div class="contact-skills-container">
+                    <div class="contact-skills-info">
+                        <h3>Web Design</h3>
+                        <p>Design sleek, responsive websites that drive results.</p>
+                    </div>
+                </div>
+                <!-- Card Four -->
+                <div class="contact-skills-container">
+                    <div class="contact-skills-info">
+                        <h3>Graphic Design</h3>
+                        <p>Create visuals that capture attention and elevate brands.</p>
+                    </div>
+                </div>
+                <!-- Card Five -->
+                <div class="contact-skills-container">
+                    <div class="contact-skills-info">
+                        <h3>IT Support</h3>
+                        <p>Keep systems running smoothly with reliable tech solutions.</p>
+                    </div>
+                </div>
+                <!-- Card Six -->
+                <div class="contact-skills-container">
+                    <div class="contact-skills-info">
+                        <h3>Video Editing</h3>
+                        <p>Craft engaging stories that connect and inspire viewers.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div aria-hidden class="contact-skills-group">
+                <!-- Card One -->
+                <div class="contact-skills-container">
+                    <div class="contact-skills-info">
+                        <h3>Email Marketing</h3>
+                        <p>Nurture leads and convert customers with campaigns.</p>
+                    </div>
+                </div>
+                <!-- Card Two -->
+                <div class="contact-skills-container">
+                    <div class="contact-skills-info">
+                        <h3>Programming</h3>
+                        <p>Build efficient, tailored solutions that bring ideas to life.</p>
+                    </div>
+                </div>
+                <!-- Card Three -->
+                <div class="contact-skills-container">
+                    <div class="contact-skills-info">
+                        <h3>Web Design</h3>
+                        <p>Design sleek, responsive websites that drive results.</p>
+                    </div>
+                </div>
+                <!-- Card Four -->
+                <div class="contact-skills-container">
+                    <div class="contact-skills-info">
+                        <h3>Graphic Design</h3>
+                        <p>Create visuals that capture attention and elevate brands.</p>
+                    </div>
+                </div>
+                <!-- Card Five -->
+                <div class="contact-skills-container">
+                    <div class="contact-skills-info">
+                        <h3>IT Support</h3>
+                        <p>Keep systems running smoothly with reliable tech solutions.</p>
+                    </div>
+                </div>
+                <!-- Card Six -->
+                <div class="contact-skills-container">
+                    <div class="contact-skills-info">
+                        <h3>Video Editing</h3>
+                        <p>Craft engaging stories that connect and inspire viewers.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div aria-hidden class="contact-skills-group">
+                <!-- Card One -->
+                <div class="contact-skills-container">
+                    <div class="contact-skills-info">
+                        <h3>Email Marketing</h3>
+                        <p>Nurture leads and convert customers with campaigns.</p>
+                    </div>
+                </div>
+                <!-- Card Two -->
+                <div class="contact-skills-container">
+                    <div class="contact-skills-info">
+                        <h3>Programming</h3>
+                        <p>Build efficient, tailored solutions that bring ideas to life.</p>
+                    </div>
+                </div>
+                <!-- Card Three -->
+                <div class="contact-skills-container">
+                    <div class="contact-skills-info">
+                        <h3>Web Design</h3>
+                        <p>Design sleek, responsive websites that drive results.</p>
+                    </div>
+                </div>
+                <!-- Card Four -->
+                <div class="contact-skills-container">
+                    <div class="contact-skills-info">
+                        <h3>Graphic Design</h3>
+                        <p>Create visuals that capture attention and elevate brands.</p>
+                    </div>
+                </div>
+                <!-- Card Five -->
+                <div class="contact-skills-container">
+                    <div class="contact-skills-info">
+                        <h3>IT Support</h3>
+                        <p>Keep systems running smoothly with reliable tech solutions.</p>
+                    </div>
+                </div>
+                <!-- Card Six -->
+                <div class="contact-skills-container">
+                    <div class="contact-skills-info">
+                        <h3>Video Editing</h3>
+                        <p>Craft engaging stories that connect and inspire viewers.</p>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+     </section>
+
+
+
+
+    <script src="script.js"></script>
+</body>
+</html>
