@@ -1217,7 +1217,7 @@ th, td {
     /* ==========================================================================
     7. PAGE HEADER / LANDING SECTION
     ========================================================================== */
-#myExperience {
+        #myExperience {
             padding: clamp(3rem, calc(3.2608695652vw + 2.347826087rem), 4.875rem) 0;
         }
 
@@ -1272,6 +1272,8 @@ th, td {
             width: 100%;
         }
 
+
+        /*------- GOVERNORS STATE ILLUSTRATION -------*/
         .governors-scene {
             display: flex;
             justify-content: center;
@@ -1287,9 +1289,8 @@ th, td {
             animation: pulse-bg 4s ease-in-out infinite;
         }
 
-        
 
-        /* Monitor */
+        /* Governors State Screen */
         .governors-monitor {
             display: flex;
             flex-direction: column;
@@ -1332,7 +1333,8 @@ th, td {
             box-shadow: var(--shadowdark);
         }
 
-        /* Toolbox */
+
+        /* Governors State Toolbox */
         .toolbox {
             position: relative;
             margin-left: -7rem;
@@ -1439,7 +1441,7 @@ th, td {
 
 
 
-        /* ECLIPSE P ILLUSTRATION */
+        /*------- ECLIPSE WEB DEV ILLUSTRATION -------*/
         .eclipse-scene {
             display: flex;
             justify-content: center;
@@ -1454,6 +1456,8 @@ th, td {
             border-bottom: 1px solid #BCBCBC;
         }
 
+
+        /* Eclipse Screen */
         .eclipse-screen {
             display: flex;
             justify-content: center;
@@ -1480,27 +1484,7 @@ th, td {
         }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        /* ECLIPSE PHONE ILLUSTRATION */
+        /* Eclipse Phone */
         .eclipse-phone {
             position: relative;
             margin-left: -6rem;
@@ -1538,23 +1522,23 @@ th, td {
         }
 
         .eclipse-row-1 {
-    height: 30px;
-    width: 100%;
-    background-color: #007bff;
-    border-radius: 5px;
-    animation: glowPulse 2s ease-in-out infinite;
-}
+            height: 30px;
+            width: 100%;
+            background-color: #007bff;
+            border-radius: 5px;
+            animation: glowPulse 2s ease-in-out infinite;
+        }
 
-@keyframes glowPulse {
-    0%, 100% {
-        background-color: #007bff;
-        box-shadow: none;
-    }
-    50% {
-        background-color: #248eff;
-        box-shadow: 0 0 10px rgb(0, 123, 255);
-    }
-}
+        @keyframes glowPulse {
+            0%, 100% {
+                background-color: #007bff;
+                box-shadow: none;
+            }
+            50% {
+                background-color: #248eff;
+                box-shadow: 0 0 10px rgb(0, 123, 255);
+            }
+        }
 
         .eclipse-row-2 {
             display: flex;
@@ -1590,38 +1574,9 @@ th, td {
             animation: glowPulse 2s ease-in-out infinite;
         }
 
+        
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        /* Toolbox */
+        /*------- METRO FAMILY CENTER ILLUSTRATION -------*/
         .family-center-tab {
             position: relative;
             margin-right: -5rem;
@@ -1654,54 +1609,32 @@ th, td {
             outline: #bcbcbc64 .5px solid;
         }
 
-
-
-
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         .family-center-scene {
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    gap: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            gap: 30px;
 
-    /* Gradient background */
-    background: linear-gradient(270deg, #007bff, #003a77, #007bff);
-    background-size: 800% 800%;
+            /* Gradient background */
+            background: linear-gradient(270deg, #007bff, #003a77, #007bff);
+            background-size: 800% 800%;
 
-    /* Smooth infinite animation */
-    animation: gradientShift 10s linear infinite;
+            /* Smooth infinite animation */
+            animation: gradientShift 10s linear infinite;
 
-    width: 100%;
-    max-width: 400px;
-    padding: 2rem 0;
-    border-radius: 10px 10px 0 0;
-    outline: #bcbcbc64 .5px solid;
-    border-bottom: 1px solid #BCBCBC;
-}
+            width: 100%;
+            max-width: 400px;
+            padding: 2rem 0;
+            border-radius: 10px 10px 0 0;
+            outline: #bcbcbc64 .5px solid;
+            border-bottom: 1px solid #BCBCBC;
+        }
 
-/* Keyframes for smooth horizontal gradient movement */
-@keyframes gradientShift {
-    0%   { background-position: 0% 50%; }
-    100% { background-position: 200% 50%; }
-}
-
+        /* Keyframes for smooth horizontal gradient movement */
+        @keyframes gradientShift {
+            0%   { background-position: 0% 50%; }
+            100% { background-position: 200% 50%; }
+        }
 
         .family-center-monitor {
             display: flex;
@@ -1728,66 +1661,46 @@ th, td {
             outline: #bcbcbc64 .5px solid;
         }
 
-.family-center-edit {
-    position: relative;
-    height: 100%;
-    width: 50%;
-    border-radius: 3px;
-    background: linear-gradient(to bottom, #cfcfcf 0%, #4c4c4c 100%);
-    overflow: hidden;
-}
+        .family-center-edit {
+            position: relative;
+            height: 100%;
+            width: 50%;
+            border-radius: 3px;
+            background: linear-gradient(to bottom, #cfcfcf 0%, #4c4c4c 100%);
+            overflow: hidden;
+        }
 
-/* marching ants border */
-.family-center-edit::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    padding: 2px; /* border thickness */
-    background: 
-        linear-gradient(90deg, #ffffff 50%, transparent 0) repeat-x,
-        linear-gradient(90deg, #ffffff 50%, transparent 0) repeat-x,
-        linear-gradient(0deg,  #ffffff 50%, transparent 0) repeat-y,
-        linear-gradient(0deg,  #ffffff 50%, transparent 0) repeat-y;
-    background-size: 20px 2px, 20px 2px, 2px 20px, 2px 20px;
-    background-position: 0 0, 0 100%, 0 0, 100% 0;
-    animation: dashMove 1s linear infinite;
-    -webkit-mask: 
-        linear-gradient(#000 0 0) content-box,
-        linear-gradient(#000 0 0);
-    -webkit-mask-composite: xor;
-            mask-composite: exclude;
-}
+        /* marching ants border */
+        .family-center-edit::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            padding: 2px; /* border thickness */
+            background: 
+                linear-gradient(90deg, #ffffff 50%, transparent 0) repeat-x,
+                linear-gradient(90deg, #ffffff 50%, transparent 0) repeat-x,
+                linear-gradient(0deg,  #ffffff 50%, transparent 0) repeat-y,
+                linear-gradient(0deg,  #ffffff 50%, transparent 0) repeat-y;
+            background-size: 20px 2px, 20px 2px, 2px 20px, 2px 20px;
+            background-position: 0 0, 0 100%, 0 0, 100% 0;
+            animation: dashMove 1s linear infinite;
+            -webkit-mask: 
+                linear-gradient(#000 0 0) content-box,
+                linear-gradient(#000 0 0);
+            -webkit-mask-composite: xor;
+                    mask-composite: exclude;
+        }
 
-@keyframes dashMove {
-    to {
-        background-position: 
-            20px 0,       /* top:  + moves →  , - moves ← */
-            -20px 100%,    /* bottom: + moves →  , - moves ← */
-            0 -20px,       /* left:  + moves ↓  , - moves ↑ */
-            100% 20px;    /* right: + moves ↓  , - moves ↑ */
-    }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        @keyframes dashMove {
+            to {
+                background-position: 
+                    20px 0,       /* top:  + moves →  , - moves ← */
+                    -20px 100%,    /* bottom: + moves →  , - moves ← */
+                    0 -20px,       /* left:  + moves ↓  , - moves ↑ */
+                    100% 20px;    /* right: + moves ↓  , - moves ↑ */
+            }
+        }
 
 
 .family-center-dashboard {
@@ -1850,28 +1763,6 @@ th, td {
     animation: gradientShift 10s linear infinite;
     background-size: 800% 800%;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -2941,6 +2832,7 @@ th, td {
     width: 250px;
     border-radius: 10px;
     flex: 0 0 auto;
+    outline: #bcbcbc64 .5px solid;
 }
 
 .contact-skills-group .contact-skills-container:nth-child(1) {
@@ -3031,4 +2923,437 @@ th, td {
 @media screen and (min-width: 1440px) {
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ==========================================================================
+   13. FOOTER
+========================================================================== */
+.footer-section {
+          background: #151414;
+          position: relative;
+        }
+        .footer-container {
+          padding: 1rem;
+        }
+        .footer-cta {
+          border-bottom: 1px solid #373636;
+          padding-bottom: 1rem;
+        }
+        .single-cta svg {
+          color: #4b0082;
+          height: 25px;
+          float: left;
+          margin-top: 5px;
+        }
+        .cta-text {
+          padding-left: 15px;
+          display: inline-block;
+        }
+        .cta-text h4 {
+          color: #fff;
+          font-size: 20px;
+          font-weight: 600;
+          margin-bottom: 2px;
+        }
+        .cta-text span {
+          color: #757575;
+          font-size: 15px;
+        }
+        .footer-content {
+          position: relative;
+          z-index: 2;
+        }
+        .footer-pattern img {
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 330px;
+          background-size: cover;
+          background-position: 100% 100%;
+        }
+        .footer-logo {
+          margin-bottom: 30px;
+        }
+        .footer-logo img {
+            max-width: 200px;
+            border-radius: 5px;
+        }
+        .footer-text p {
+          margin-bottom: 14px;
+          font-size: 14px;
+          color: #7e7e7e;
+          line-height: 28px;
+        }
+        .footer-social-icon-wrapper {
+          display: flex;
+          padding-bottom: 1rem;
+        }
+        .footer-social-icon span {
+          color: #fff;
+          display: block;
+          font-size: 20px;
+          font-weight: 700;
+          font-family: 'Poppins', sans-serif;
+          margin-bottom: 20px;
+        }
+        .footer-social-icon a {
+          color: #fff;
+          font-size: 16px;
+          margin-right: 15px;
+        }
+        .footer-social-icon svg {
+          height: 40px;
+          width: 40px;
+          text-align: center;
+          line-height: 38px;
+          border-radius: 50%;
+        }
+        .facebook-bg{
+          background: #3B5998;
+        }
+        .twitter-bg{
+          background: #55ACEE;
+        }
+        .google-bg{
+          background: #DD4B39;
+        }
+        .footer-widget {
+          padding-top: 1rem;
+        }
+        .footer-widget-heading h3 {
+          color: #fff;
+          font-size: 20px;
+          font-weight: 600;
+          margin-bottom: 40px;
+          position: relative;
+        }
+        .footer-widget-heading h3::before {
+          content: "";
+          position: absolute;
+          left: 0;
+          bottom: -15px;
+          height: 2px;
+          width: 50px;
+          background: #4b0082;
+        }
+        .footer-widget ul li {
+          display: inline-block;
+          float: left;
+          width: 50%;
+          margin-bottom: 12px;
+        }
+        .footer-widget ul li a:hover{
+          color: #4b0082;
+        }
+        .footer-widget ul li a {
+          color: #878787;
+          text-transform: capitalize;
+          text-decoration: none;
+        }
+        .subscribe-form {
+          position: relative;
+          overflow: hidden;
+        }
+        .subscribe-form input {
+          width: 100%;
+          padding: 14px 28px;
+          background: #2E2E2E;
+          border: 1px solid #2E2E2E;
+          color: #fff;
+        }
+        .subscribe-form button {
+            position: absolute;
+            right: 0;
+            background: #4b0082;
+            padding: 13px 20px;
+            border: 1px solid #4b0082;
+            top: 0;
+            cursor: pointer;
+        }
+        .subscribe-form button svg {
+          color: #fff;
+          height: 25px;
+          transform: rotate(-6deg);
+        }
+        .copyright-area{
+          background: #202020;
+          padding-top: 1rem;
+        }
+        .copyright-text p {
+          margin: 0;
+          font-size: 14px;
+          color: #878787;
+          text-align: center;
+        }
+        .copyright-text p a{
+          color: #4b0082;
+          text-decoration: none;
+        }
+        .footer-menu li {
+          display: inline-block;
+          margin-left: 20px;
+        }
+        .footer-menu li:hover a{
+          color: #4b0082;
+        }
+        .footer-menu li a {
+          font-size: 14px;
+          color: #878787;
+          text-decoration: none;
+        }
+        .footer-menu ul {
+            list-style: none;
+            margin-bottom: 0;
+        }
+
+/* Updated media query to ensure footer widgets stay on same line and proper CTA positioning */
+@media screen and (min-width: 992px) {
+  .footer-container {
+    max-width: 960px;
+    margin: 0 auto; /* Center the container */
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+  }
+  
+  /* Footer CTA section - ensure it stays on top and centered */
+  .footer-cta {
+    width: 100%;
+    order: 1;
+  }
+  
+  .footer-cta .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  
+  /* Footer content section - comes after CTA and centered */
+  .footer-content {
+    width: 100%;
+    order: 2;
+  }
+  
+  .footer-content .row {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  
+  .footer-content .row > [class*="col-"] {
+    flex: 1;
+    max-width: none;
+    margin-bottom: 0;
+  }
+  
+  .footer-widget {
+    height: 100%;
+  }
+}
+
+body.light-mode #contact {
+    margin-top: 10px;
+}
+
+body.light-mode .contact-header {
+    color: var(--colorprimary)
+}
+
+option {
+    color: var(--colorsecondary)
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
