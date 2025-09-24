@@ -10,7 +10,7 @@
 :root {
     /* Color Variables */
     --colorprimary: #ffffff;
-    --colorsecondary: #000000;
+    --colorsecondary: #131313;
     --colorgradient1: linear-gradient(to right, #3A3A3A 0%, #1A1A1A 100%);
     
 
@@ -215,8 +215,8 @@ th, td {
 
 
 /* ==========================================================================
-   2. ANIMATIONS
-   ========================================================================== */
+    2. ANIMATIONS
+========================================================================== */
 
 /* Base Animation Classes */
 .animate {
@@ -493,7 +493,9 @@ th, td {
 
 
 
-
+/* ==========================================================================
+   3. SOCIAL MEDIA LINKS
+========================================================================== */
 .social-links {
     position: fixed;
     bottom: 0;
@@ -560,10 +562,12 @@ th, td {
     }
 }
 
-
+/* ==========================================================================
+   4. BUTTONS 
+========================================================================== */
 .fill-button {
     background: linear-gradient(to bottom, #007bff 0%, #0357b1 100%);
-    padding: .75rem 2rem;
+    padding: .5rem 2rem;
     margin-bottom: 3px;
     display: inline-block;
     border-radius: 30px;
@@ -586,7 +590,6 @@ th, td {
     z-index: 1;
 }
 
-/* Fill effect using a pseudo-element */
 .fill-button::before {
     content: '';
     position: absolute;
@@ -625,6 +628,9 @@ th, td {
     transform: translateX(0); /* arrow slides in with bounce */
 }
 
+#fillButton {
+    display: none;
+}
 
 
 
@@ -646,8 +652,9 @@ th, td {
 
 
 
-
-
+/* ==========================================================================
+   5. NAVBAR
+========================================================================== */
 
 .navbar {
     position: fixed;
@@ -657,7 +664,6 @@ th, td {
     background-color: var(--colorsecondary);
     z-index: 1000;
     box-shadow: var(--shadow);
-    border-bottom: 1px solid gray;
 }
 
 .nav-container {
@@ -685,10 +691,6 @@ th, td {
 .nav-logo img {
     height: 40px;
 }
-
-
-
-
 
 .hamburger {
     display: flex;
@@ -750,8 +752,6 @@ th, td {
     left: 0;
 }
 
-
-
 .nav-item {
     width: 100%;
     text-align: center;
@@ -777,8 +777,6 @@ th, td {
     padding: 2rem 0rem .5rem 0;
 }
 
-
-/* Dropdown Arrow */
 .nav-link.has-dropdown::after {
     content: '▼';
     font-size: .75rem;
@@ -790,7 +788,6 @@ th, td {
     transform: rotate(180deg);
 }
 
-/* Dropdown Menu - Mobile First */
 .dropdown {
     width: 100%;
     background-color: var(--colorsecondary);
@@ -809,8 +806,6 @@ th, td {
     background-color: var(--colorprimary);
 }
 
-
-
 .dropdown-item:hover,
 .dropdown-item:active {
     background-color: var(--colorprimaryhover);
@@ -826,7 +821,6 @@ th, td {
     text-align: start;
 }
 
-/* Spacer for fixed navbar */
 .navbar-spacer {
     height: clamp(60px, 12vw, 70px);
 }
@@ -835,13 +829,11 @@ th, td {
     display: none;
 }
 
-
-
-
-
-
-
 @media (min-width: 1024px) {
+    #fillButton {
+        display: block;
+    }
+
     #heroSection {
         height: 92vh !important;
     }
@@ -853,7 +845,6 @@ th, td {
     .nav-logo {
         position: static;
         transform: none;
-        margin-right: auto;
         border-radius: 10px;
         box-shadow: 50% var(--shadowdark);
         transition: all 0.1s ease;
@@ -871,7 +862,7 @@ th, td {
   }
 
   .nav-logo.shrink img {
-      height: 75px;
+      height: 100px;
   }
 
     .hamburger {
@@ -882,12 +873,14 @@ th, td {
         position: static;
         flex-direction: row;
         align-items: center;
-        justify-content: flex-end;
+        justify-content: center;
+        margin: 0 auto;
         width: auto;
         height: auto;
         background: none;
         gap: 2rem;
         overflow: visible;
+        padding-left: 46px;
     }
 
     .nav-item {
@@ -898,7 +891,7 @@ th, td {
     .nav-link {
         font-size: 1rem;
         padding: 0.5rem 0;
-        font-weight: 300;
+        font-weight: 500;
         color: #ffffff;
         
     }
@@ -1031,9 +1024,8 @@ th, td {
 
 
 /* ==========================================================================
-7. PAGE HEADER / LANDING SECTION
+6. PAGE HEADER / LANDING SECTION
 ========================================================================== */
-/* Landing Section Styles */
         #landing {
             padding-top: 2rem;
             background-color: var(--colorsecondary);
@@ -1136,9 +1128,10 @@ th, td {
         .delay-1400 { transition-delay: 1.4s !important; }
 
 
-        @media screen and (min-width: 560px) {
+
+        @media screen and (min-width: 405px) {
             .landing-intro h1 {
-                font-size: 3.5rem;
+                font-size: 4rem;
                 line-height: 4rem;
             }
         }
@@ -1291,7 +1284,10 @@ th, td {
             border-radius: 10px 10px 0 0;
             outline: #bcbcbc64 .5px solid;
             border-bottom: 1px solid #BCBCBC;
+            animation: pulse-bg 4s ease-in-out infinite;
         }
+
+        
 
         /* Monitor */
         .governors-monitor {
@@ -1368,35 +1364,35 @@ th, td {
             align-items: center;
             background: #575757;
             outline: #bcbcbc64 .5px solid;
-            padding: .25rem 0;
+            padding: .5rem 0;
         }
 
-        /* Cross */
-        .cross {
-            width: 40px;
+        .toolbox-logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: -2.5rem;
+            padding: 1rem 0;
+        }
+
+        .toolbox-logo svg {
             height: 40px;
-            background: red;
+            width: 40px;
+            display: block;
+            margin: auto;
+            background-color: #007bff;
             border-radius: 50%;
-            position: relative;
-            border: 2px solid white;
+            padding: .25rem;
+            animation: spin 5s linear infinite;
+            margin-bottom: -2.5rem;
         }
 
-        .cross::before,
-        .cross::after {
-            content: "";
-            position: absolute;
-            background: white;
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to   { transform: rotate(360deg); }
         }
 
-        .cross::before {
-            width: 60%; height: 20%;
-            top: 40%; left: 20%;
-        }
 
-        .cross::after {
-            width: 20%; height: 60%;
-            top: 20%; left: 40%;
-        }
 
         .toolbox-bottom {
             width: 70%;
@@ -1408,14 +1404,14 @@ th, td {
         .toolbox-bottom-left {
             height: 100%;
             width: 30px;
-            background-color: #BCBCBC;
+            background: linear-gradient(to top, #969494 0%, #4c4c4c 100%);
             border-radius: 0 0 10px 10px;
         }
 
         .toolbox-bottom-right {
             height: 100%;
             width: 30px;
-            background-color: #BCBCBC;
+            background: linear-gradient(to top, #969494 0%, #4c4c4c 100%);
             border-radius: 0 0 10px 10px;
             margin-left: auto;
         }
@@ -1443,7 +1439,7 @@ th, td {
 
 
 
-
+        /* ECLIPSE P ILLUSTRATION */
         .eclipse-scene {
             display: flex;
             justify-content: center;
@@ -1504,7 +1500,7 @@ th, td {
 
 
 
-        /* Toolbox */
+        /* ECLIPSE PHONE ILLUSTRATION */
         .eclipse-phone {
             position: relative;
             margin-left: -6rem;
@@ -1826,7 +1822,7 @@ th, td {
     height: 50%;
     width: 100%;
     border-radius: 3px;
-    background-color: #131313;
+    background: linear-gradient(to bottom, #cfcfcf 0%, #4c4c4c 100%);
     padding: .25rem;
     outline: #bcbcbc64 .5px solid;
 }
@@ -1837,10 +1833,25 @@ th, td {
 .family-center-dashboard-container-4 {
     height: 47%;
     width: 47%;
-    background: linear-gradient(to bottom, #cfcfcf 0%, #4c4c4c 100%);
     border-radius: 3px;
     outline: #bcbcbc64 .5px solid;
 }
+
+.family-center-dashboard-container-1,
+.family-center-dashboard-container-4 {
+    background: linear-gradient(-270deg, #f8981d, #72460c, #f8981d);
+    animation: gradientShift 10s linear infinite;
+    background-size: 800% 800%;
+}
+
+.family-center-dashboard-container-2,
+.family-center-dashboard-container-3 {
+    background: linear-gradient(270deg, #007bff, #003a77, #007bff);
+    animation: gradientShift 10s linear infinite;
+    background-size: 800% 800%;
+}
+
+
 
 
 
@@ -1978,8 +1989,8 @@ th, td {
     overflow: hidden;
     background-size: cover;
     background-position: center;
-    border: .5rem solid white;
-    background-image: url(images/governors-state.png);
+    background-image: url(images/moraine.png);
+    outline: #bcbcbc64 .5px solid;
     box-shadow: var(--shadowdark);
     
 }
@@ -2011,6 +2022,7 @@ th, td {
     border-radius: 50%;
     background: linear-gradient(to bottom, #3A3A3A 0%, #1A1A1A 100%);
     display: flex;
+    padding: .5rem;
     justify-content: center;
     align-items: center;
     font-size: 12px;
@@ -2031,7 +2043,7 @@ th, td {
 /* Rotation animation */
 @keyframes spin {
     from { transform: translate(-50%, -50%) rotate(0deg); }
-    to   { transform: translate(-50%, -50%) rotate(360deg); }
+    to   { transform: translate(-50%, -50%) rotate(-360deg); }
 }
 
 
@@ -2433,6 +2445,8 @@ th, td {
 .portfolio-container-img img {
     border-radius: 10px;
     transition: transform 0.5s ease;
+    max-width: 100%;
+    height: auto;
 }
 
 .portfolio-container-info {
@@ -2750,15 +2764,8 @@ th, td {
 
 
 
-
-.contact-button {
-    background-color: red;
-    padding: .5rem 1rem;
-    border-radius: 30px;
-    background: var(--colorgradient1);
-    border: .25px solid rgba(255, 255, 255, 0.202);
-    text-transform: uppercase;
-    font-size: 1rem;
+#fillButtonContact {
+    width: fit-content;
     margin: 0 auto;
 }
 
@@ -2767,7 +2774,134 @@ th, td {
 
 
 
+/* ==========================================================================
+   8. KNIFE-EDGE BORDER EFFECT
+   ========================================================================== */
 
+@property --border-angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+.knife-edge-border {
+    position: relative;
+    border-radius: 20px;
+    background-color: var(--colorsecondary);
+    color: white;
+    box-sizing: border-box;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.knife-edge-border::before,
+.knife-edge-border::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 20px;
+    padding: 2px;
+    pointer-events: none;
+    -webkit-mask: 
+        linear-gradient(#fff 0 0) content-box, 
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.5));
+}
+
+.knife-edge-border::before {
+    background: conic-gradient(
+        from var(--border-angle),
+        transparent 0%,
+        transparent 43%,
+        rgba(255, 255, 255, 0.3) 46%,
+        rgba(255, 255, 255, 0.85) 48%, 
+        white 50%,
+        rgba(255, 255, 255, 0.85) 52%,
+        rgba(255, 255, 255, 0.3) 54%,
+        transparent 57%,
+        transparent 100%
+    );
+    animation: knife-rotate 5s linear infinite;
+}
+
+@keyframes knife-rotate {
+    from { --border-angle: 0deg; }
+    to { --border-angle: 360deg; }
+}
+
+
+@property --dual-border-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+/* Dual knife-edge border class */
+.dual-knife-edge-border {
+  position: relative;
+  background-color: var(--colorsecondary); /* Card background color - customize as needed */
+  color: white;
+  box-sizing: border-box;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Optional shadow for the card */
+}
+
+/* Common properties for both lights */
+.dual-knife-edge-border::before,
+.dual-knife-edge-border::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 10px;
+  padding: 2px; /* Border width */
+  pointer-events: none;
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.5));
+}
+
+/* First light */
+.dual-knife-edge-border::before {
+  background: conic-gradient(
+    from var(--dual-border-angle),
+    transparent 0%,
+    transparent 43%,
+    rgba(255, 255, 255, 0.3) 46%,
+    rgba(255, 255, 255, 0.85) 48%, 
+    white 50%,
+    rgba(255, 255, 255, 0.85) 52%,
+    rgba(255, 255, 255, 0.3) 54%,
+    transparent 57%,
+    transparent 100%
+  );
+  animation: dual-knife-rotate 5s linear infinite;
+}
+
+/* Second light (opposite side) */
+.dual-knife-edge-border::after {
+  background: conic-gradient(
+    from calc(var(--dual-border-angle) + 180deg),
+    transparent 0%,
+    transparent 43%,
+    rgba(255, 255, 255, 0.3) 46%,
+    rgba(255, 255, 255, 0.85) 48%, 
+    white 50%,
+    rgba(255, 255, 255, 0.85) 52%,
+    rgba(255, 255, 255, 0.3) 54%,
+    transparent 57%,
+    transparent 100%
+  );
+  animation: dual-knife-rotate 5s linear infinite;
+}
+
+/* Animation for the dual rotating lights */
+@keyframes dual-knife-rotate {
+  from { --dual-border-angle: 0deg; }
+  to { --dual-border-angle: 360deg; }
+}
 
 
 
