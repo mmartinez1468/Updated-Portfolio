@@ -469,57 +469,11 @@ function triggerAnimations() {
 
 
 
-// Skills section functionality
-        const skillsContainer = document.getElementById('skillsContainer');
-        const dots = document.querySelectorAll('.dot');
-        let currentSkill = 0;
 
-        // Function to update active dot
-        function updateActiveDot(index) {
-            dots.forEach(dot => dot.classList.remove('active'));
-            if (dots[index]) {
-                dots[index].classList.add('active');
-            }
-        }
 
-        // Dot click functionality
-        dots.forEach((dot, index) => {
-            dot.addEventListener('click', () => {
-                const cardWidth = window.innerWidth + 20; // full viewport width + margin
-                skillsContainer.scrollTo({
-                    left: cardWidth * index,
-                    behavior: 'smooth'
-                });
-                currentSkill = index;
-                updateActiveDot(currentSkill);
-            });
-        });
 
-        // Update dots on scroll (mobile only)
-        function updateDotsOnScroll() {
-            if (window.innerWidth < 768) {
-                const cards = document.querySelectorAll('.skills-card');
-                const cardWidth = window.innerWidth + 20; // full viewport width + margin
-                const scrollLeft = skillsContainer.scrollLeft;
-                const newSkill = Math.round(scrollLeft / cardWidth);
-                
-                if (newSkill !== currentSkill) {
-                    currentSkill = newSkill;
-                    updateActiveDot(currentSkill);
-                }
-            }
-        }
 
-        skillsContainer.addEventListener('scroll', updateDotsOnScroll);
 
-        // Reset to first slide when switching to tablet/desktop
-        window.addEventListener('resize', () => {
-            if (window.innerWidth >= 768) {
-                skillsContainer.scrollTo({ left: 0 });
-                currentSkill = 0;
-                updateActiveDot(currentSkill);
-            }
-        });
 
 
 
@@ -596,20 +550,70 @@ function triggerAnimations() {
 
 
 
+const wrapper = document.querySelector('.experience-wrapper');
+const containers = document.querySelectorAll('.experience-container');
+let currentIndex = 0;
 
+// Create dots
+const dotsNav = document.getElementById('dotsNav');
+containers.forEach((_, i) => {
+    const dot = document.createElement('div');
+    dot.classList.add('dot');
+    if (i === 0) dot.classList.add('active');
+    dot.addEventListener('click', () => {
+        currentIndex = i;
+        updateSlide();
+    });
+    dotsNav.appendChild(dot);
+});
+const dots = document.querySelectorAll('.dot');
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+function updateSlide() {
+    const containerWidth = containers[0].offsetWidth;
+    const offset = containerWidth * currentIndex;
+    wrapper.style.transform = `translateX(-${offset}px)`;
+    
+    dots.forEach(dot => dot.classList.remove('active'));
+    dots[currentIndex].classList.add('active');
+}
+
+// Swipe functionality
+let startX = 0;
+let isDragging = false;
+
+wrapper.addEventListener('touchstart', e => {
+    startX = e.touches[0].clientX;
+    isDragging = true;
+});
+
+wrapper.addEventListener('touchmove', e => {
+    if (!isDragging) return;
+    const diff = startX - e.touches[0].clientX;
+    wrapper.style.transform = `translateX(-${containers[0].offsetWidth * currentIndex + diff}px)`;
+});
+
+wrapper.addEventListener('touchend', e => {
+    isDragging = false;
+    const diff = startX - e.changedTouches[0].clientX;
+    if (diff > 50 && currentIndex < containers.length - 1) currentIndex++;
+    else if (diff < -50 && currentIndex > 0) currentIndex--;
+    updateSlide();
+});
+
+// Keyboard navigation
+window.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight' && currentIndex < containers.length - 1) {
+        currentIndex++;
+        updateSlide();
+    } else if (e.key === 'ArrowLeft' && currentIndex > 0) {
+        currentIndex--;
+        updateSlide();
+    }
+});
+
+// Update on resize
+window.addEventListener('resize', updateSlide);
+
+// Initialize
+updateSlide();
 
