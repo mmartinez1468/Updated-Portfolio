@@ -1221,29 +1221,22 @@ th, td {
     ========================================================================== */
         #myExperience {
             padding: clamp(3rem, calc(3.2608695652vw + 2.347826087rem), 4.875rem) 0;
+            margin-top: 5rem;
         }
 
         .experience-header {
-            padding-bottom: 5rem;
-            text-align: center;
+            padding-bottom: 3rem;
+            padding-left: 1rem;
         }
 
         .experience-header h2 {
             text-transform: capitalize;
             font-weight: 400;
-            font-size: 2rem;
+            font-size: 2.25rem;
         }
 
         .experience-header span {
             font-weight: 200;
-        }
-
-        .experience-slider {
-            position: relative;
-            overflow: hidden;
-            width: 100%;
-            max-width: 800px;
-            margin: 0 auto;
         }
 
         /* Horizontal scroll wrapper */
@@ -1283,8 +1276,9 @@ th, td {
             gap: 30px;
             background: linear-gradient(to top, #007bff 0%, #1A1A1A 100%);
             width: 100%;
-            max-width: 400px;
             padding: 2rem 0;
+            min-width: 288px;
+            max-width: 830px;
             border-radius: 10px 10px 0 0;
             outline: #bcbcbc64 .5px solid;
             border-bottom: 1px solid #BCBCBC;
@@ -1447,11 +1441,13 @@ th, td {
         .eclipse-scene {
             display: flex;
             justify-content: center;
-            align-items: flex-end;
+            align-items: center;
             gap: 30px;
             background: linear-gradient(to top, #007bff 0%, #1A1A1A 100%);
             width: 100%;
-            max-width: 400px;
+            height: 255px;
+            min-width: 288px;
+            max-width: 830px;
             padding: 2rem 0;
             border-radius: 10px 10px 0 0;
             outline: #bcbcbc64 .5px solid;
@@ -1490,6 +1486,7 @@ th, td {
         .eclipse-phone {
             position: relative;
             margin-left: -6rem;
+            margin-bottom: -5rem;
         }
 
         .eclipse-phone-container {
@@ -1498,7 +1495,6 @@ th, td {
             align-items: center;
             height: 120px;
             width: 65px;
-            margin-bottom: -2rem;
             border-radius: 5px;
             background-color: #131313;
             outline: #bcbcbc64 .5px solid;
@@ -1594,7 +1590,6 @@ th, td {
             height: 60px;
             width: 100px;
             padding: .75rem 1rem;
-            margin-top: -7rem;
             border-radius: 10px;
             background: linear-gradient(to bottom, #3A3A3A 0%, #1A1A1A 100%);
             outline: #bcbcbc64 .5px solid;
@@ -1614,9 +1609,9 @@ th, td {
         .family-center-scene {
             display: flex;
             justify-content: center;
-            align-items: flex-end;
+            align-items: center;
             gap: 30px;
-
+            min-width: 288px;
             /* Gradient background */
             background: linear-gradient(270deg, #007bff, #003a77, #007bff);
             background-size: 800% 800%;
@@ -1625,7 +1620,7 @@ th, td {
             animation: gradientShift 10s linear infinite;
 
             width: 100%;
-            max-width: 400px;
+            height: 255px;
             padding: 2rem 0;
             border-radius: 10px 10px 0 0;
             outline: #bcbcbc64 .5px solid;
@@ -1776,7 +1771,7 @@ th, td {
             background-color: #222222;
             border-radius: 0 0 10px 10px;
             width: 100%;
-            max-width: 400px;
+            min-width: 288px;
             outline: #bcbcbc64 .5px solid;
         }
 
@@ -1830,14 +1825,16 @@ th, td {
         .moraine-scene {
             display: flex;
             justify-content: center;
-            align-items: flex-end;
+            align-items: center;
             gap: 30px;
             background: linear-gradient(to top, #007bff 0%, #1A1A1A 100%);
             width: 100%;
-            max-width: 400px;
+            height: 255px;
+            max-width: 830px;
             border-radius: 10px 10px 0 0;
             outline: #bcbcbc64 .5px solid;
             border-bottom: 1px solid #BCBCBC;
+            min-width: 288px;
         }
 
 
@@ -1958,16 +1955,48 @@ th, td {
 .dots-nav {
     display: flex;
     justify-content: center;
-    gap: 10px;
+    align-items: center;
+    gap: 2rem;
     margin-top: 20px;
+    position: relative;
+}
+
+/* Base line (static background line) */
+.dots-nav::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    height: 10px;
+    background: #ccc;
+    transform: translateY(-50%);
+    z-index: 0;
+    left: var(--line-start, 15px);
+    width: var(--total-line-width, calc(100% - 30px));
+}
+
+/* Progress line (dynamic foreground line) */
+.dots-nav::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: var(--line-start, 15px);
+    height: 10px;
+    background: #007bff;
+    transform: translateY(-50%);
+    z-index: 0;
+    transition: width 0.3s ease;
+    width: var(--progress-width, 0);
 }
 
 .dot {
-    width: 10px;
-    height: 10px;
+    width: 30px;
+    height: 30px;
     background: #ccc;
     border-radius: 50%;
     cursor: pointer;
+    position: relative;
+    z-index: 1; /* Place above lines */
+    transition: background 0.3s ease;
 }
 
 .dot.active {
@@ -1985,28 +2014,289 @@ th, td {
 
 
 
-
     @media screen and (min-width: 400px) {
+        #myExperience {
+            padding: 0 1.5rem;
+        }
+
+    }
+
+    @media screen and (min-width: 480px) {
         #myExperience {
             padding: clamp(3rem,calc(3.2608695652vw + 2.347826087rem),4.875rem);
         }
-    }
 
+        .experience-header {
+            padding-left: 0;
+        }
 
-
-    @media screen and (min-width: 768px) {
-        .experience-intro h2 {
-            font-size: var(--fontheader768);
+        .experience-wrapper .experience-container:nth-child(1) {
+            padding-left: 0;
         }
     }
 
-    @media screen and (min-width: 1024px) {
+    @media screen and (min-width: 768px) {
+        #myExperience {
+            padding: clamp(3rem,calc(3.2608695652vw + 2.347826087rem),4.875rem);
+        }
+
+        .experience-header h2 {
+            font-size: var(--fontheader768);
+            line-height: 3rem;
+        }
         
+        .experience-intro h2 {
+            font-size: var(--fontheader768);
+        }
+
+        .experience-info {
+            max-width: 830px;
+        }
+
+        .experience-info h3 {
+            font-size: 2rem;
+        }
+
+        .experience-info p {
+            width: 90%;
+            line-height: 1.75rem;
+            font-size: 1.25rem;
+        }
+
+        .experience-info-tasks li {
+            font-size: 1rem;
+        }
     }
 
+
+
+
+
+    @media screen and (min-width: 1024px) {
+        #myExperience {
+            padding-right: 0 !important;
+        }
+
+        .experience-header {
+            padding-right: 8rem;
+            padding-bottom: 2rem;
+            display: flex;
+            text-align: end;
+            width: 100%;
+        }
+
+        .experience-header h2 {
+            margin-left: auto;
+        }
+        
+        .experience-container {
+            flex-direction: row-reverse;
+            padding-left: 1rem !important;
+            gap: 1rem;
+        }
+
+        .experience-info {
+            background: none;
+            outline: none;
+            padding-left: 2rem;
+        }
+
+        .eclipse-scene, .moraine-scene, .governors-scene, .family-center-scene {
+            background: none;
+            border-bottom: none;
+            outline: none;
+            padding: 0;
+        }
+
+
+
+
+
+
+
+
+
+        .governors-screen {
+            width: 300px;
+            height: 200px;
+        }
+
+        .toolbox-box {
+            width: 155px;
+            height: 100px;
+        }
+
+        .orbit {
+            height: 300px;
+            width: 300px;
+        }
+
+        .center-circle {
+            width: 200px;
+            height: 200px;
+        }
+
+        .connecting-circle {
+            height: 300px;
+            width: 300px;
+        }
+
+        .outer-circle {
+            height: 60px;
+            width: 60px;
+        }
+
+        /* Place circles evenly spaced around orbit */
+/* Place circles evenly spaced ON the connecting circle path */
+.outer-circle:nth-child(1) { transform: rotate(0deg) translateX(-25px) translateY(-180px) rotate(0deg); }
+.outer-circle:nth-child(2) { transform: rotate(0deg) translateX(100px) translateY(-100px) rotate(0deg); }
+.outer-circle:nth-child(3) { transform: rotate(0deg) translateX(110px) translateY(40px) rotate(0deg); }
+.outer-circle:nth-child(4) { transform: rotate(0deg) translateX(-25px) translateY(120px) rotate(0deg); }
+.outer-circle:nth-child(5) { transform: rotate(0deg) translateX(-160px)  translateY(40px) rotate(0deg); }
+.outer-circle:nth-child(6) { transform: rotate(0deg) translateX(-160px) translateY(-100px) rotate(0deg); }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        .family-center-scene {
+            padding-right: 4rem;
+        }
+
+        .family-center-monitor {
+            width: 300px;
+            height: 200px;
+        }
+
+        .family-center-tab-container {
+            height: 75px;
+            width: 125px;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        .eclipse-screen {
+            width: 300px;
+            height: 200px;
+        }
+
+        /* Eclipse Phone */
+        .eclipse-phone {
+            position: relative;
+            margin-left: -6rem;
+            margin-bottom: -5rem;
+        }
+
+        .eclipse-phone-container {
+            height: 150px;
+            width: 80px;
+            border-radius: 10px;
+        }
+
+        .eclipse-phone-screen {
+            height: 145px;
+            width: 75px;
+            padding: .25rem;
+            border-radius: 8px;
+        }
+
+        .eclipse-row-1 {
+            height: 40px;
+        }
+
+
+        .eclipse-row-2-1, .eclipse-row-2-2 {
+            height: 32px;
+        }
+
+        .eclipse-row-3-1, .eclipse-row-3-2 {
+            height: 32px;
+        }
+
+        .dots-nav {
+            padding-right: 5rem;
+        }
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     @media screen and (min-width: 1248px) {
-        .experience-intro h2 {
+        .experience-header h2 {
             font-size: var(--fontheader1248);
+        }
+
+        .experience-info-position span {
+            font-size: 1.25rem;
+        }
+
+        .experience-info h3 {
+            font-size: 3rem;
+            padding-top: 1rem;
+        }
+
+        .experience-info p {
+            font-size: 1.5rem;
+        }
+
+        .experience-info-tasks li {
+            font-size: 1.25rem;
         }
     }
 

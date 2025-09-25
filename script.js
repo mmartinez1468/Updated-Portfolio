@@ -548,8 +548,6 @@ function triggerAnimations() {
 
 
 
-
-
 const wrapper = document.querySelector('.experience-wrapper');
 const containers = document.querySelectorAll('.experience-container');
 let currentIndex = 0;
@@ -573,8 +571,28 @@ function updateSlide() {
     const offset = containerWidth * currentIndex;
     wrapper.style.transform = `translateX(-${offset}px)`;
     
-    dots.forEach(dot => dot.classList.remove('active'));
-    dots[currentIndex].classList.add('active');
+    // Update dot states - all dots up to and including current index should be active
+    dots.forEach((dot, index) => {
+        if (index <= currentIndex) {
+            dot.classList.add('active');
+        } else {
+            dot.classList.remove('active');
+        }
+    });
+    
+    // Update progress line - calculate distance between dot centers
+    if (containers.length > 1) {
+        const firstDot = dots[0];
+        const lastDot = dots[dots.length - 1];
+        const firstDotCenter = firstDot.offsetLeft + (firstDot.offsetWidth / 2);
+        const lastDotCenter = lastDot.offsetLeft + (lastDot.offsetWidth / 2);
+        const totalDistance = lastDotCenter - firstDotCenter;
+        const progressWidth = (currentIndex / (containers.length - 1)) * totalDistance;
+        
+        dotsNav.style.setProperty('--progress-width', progressWidth + 'px');
+        dotsNav.style.setProperty('--line-start', firstDotCenter + 'px');
+        dotsNav.style.setProperty('--total-line-width', totalDistance + 'px');
+    }
 }
 
 // Swipe functionality
@@ -616,4 +634,3 @@ window.addEventListener('resize', updateSlide);
 
 // Initialize
 updateSlide();
-
