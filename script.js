@@ -656,3 +656,46 @@ document.addEventListener("DOMContentLoaded", () => {
   initializeLogoShrink();
   initializeNavbarScroll(); // add this
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const toggles = document.querySelectorAll(".tasks-toggle");
+
+  toggles.forEach(button => {
+    button.addEventListener("click", () => {
+      const tasks = button.previousElementSibling; // ul.experience-info-tasks
+      tasks.classList.toggle("open");
+      button.classList.toggle("open");
+    });
+  });
+});
+
