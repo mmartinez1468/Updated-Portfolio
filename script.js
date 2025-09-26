@@ -150,37 +150,92 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-// Single Intersection Observer to handle animations when elements enter viewport
+// Dual Intersection Observer to handle both one-time and repeating animations
 document.addEventListener('DOMContentLoaded', function() {
-    // Get all elements with the 'animate' class
-    const animatedElements = document.querySelectorAll('.animate');
+    // Get elements with different animation classes (including responsive ones)
+    const oneTimeElements = document.querySelectorAll('.animate, .md-animate, .lg-animate, .xl-animate');
+    const repeatingElements = document.querySelectorAll('.animate-repeat, .md-animate-repeat, .lg-animate-repeat, .xl-animate-repeat');
     
-    // Create an observer with appropriate options
-    const observer = new IntersectionObserver((entries) => {
+    // Observer for one-time animations (original behavior)
+    const oneTimeObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-            // If the element is in the viewport
             if (entry.isIntersecting) {
-                // Add the 'visible' class to trigger the animation
                 entry.target.classList.add('visible');
-                
-                // Optionally unobserve the element after it's animated
-                observer.unobserve(entry.target);
+                // Unobserve after animation to prevent repeat
+                oneTimeObserver.unobserve(entry.target);
             }
         });
     }, {
-        // Options for the observer
         threshold: 0.1,
         rootMargin: '0px 0px -10% 0px'
     });
     
-    // Observe each animated element
-    animatedElements.forEach(element => {
-        observer.observe(element);
+    // Observer for repeating animations
+    const repeatingObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Add visible class when entering viewport
+                entry.target.classList.add('visible');
+            } else {
+                // Instantly remove visible class and temporarily remove delay
+                if (entry.intersectionRatio === 0) {
+                    // Store original delay classes
+                    const delayClasses = [];
+                    entry.target.classList.forEach(className => {
+                        if (className.includes('delay-')) {
+                            delayClasses.push(className);
+                        }
+                    });
+                    
+                    // Remove delay classes temporarily for instant reset
+                    delayClasses.forEach(delayClass => {
+                        entry.target.classList.remove(delayClass);
+                    });
+                    
+                    // Remove visible class instantly
+                    entry.target.classList.remove('visible');
+                    
+                    // Restore delay classes after a brief moment for next animation
+                    setTimeout(() => {
+                        delayClasses.forEach(delayClass => {
+                            entry.target.classList.add(delayClass);
+                        });
+                    }, 50);
+                }
+            }
+        });
+    }, {
+        threshold: [0, 0.1], // Multiple thresholds for better mobile detection
+        rootMargin: '0px 0px -5% 0px' // Reduced margin for mobile
     });
     
-    // Add visible class immediately for elements already in viewport on page load
+    // Observe one-time animation elements
+    oneTimeElements.forEach(element => {
+        oneTimeObserver.observe(element);
+    });
+    
+    // Observe repeating animation elements
+    repeatingElements.forEach(element => {
+        repeatingObserver.observe(element);
+    });
+    
+    // Handle elements already in viewport on page load
     setTimeout(() => {
-        animatedElements.forEach(element => {
+        // One-time elements
+        oneTimeElements.forEach(element => {
+            const rect = element.getBoundingClientRect();
+            if (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            ) {
+                element.classList.add('visible');
+            }
+        });
+        
+        // Repeating elements
+        repeatingElements.forEach(element => {
             const rect = element.getBoundingClientRect();
             if (
                 rect.top >= 0 &&
@@ -252,167 +307,81 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-// Scroll-based sliding effects (ONLY for elements with data-scroll-slide attributes)
-document.addEventListener('DOMContentLoaded', function() {
-    const scrollElements = document.querySelectorAll('[data-scroll-slide]');
-    
-    // Debug logging
-    console.log('Found scroll elements:', scrollElements.length);
-    scrollElements.forEach((el, i) => {
-        console.log(`Element ${i}:`, el.textContent || el.innerText, 'Direction:', el.dataset.scrollSlide);
-    });
-    
-    if (scrollElements.length === 0) return;
-    
-    scrollElements.forEach(element => {
-        const smooth = element.dataset.scrollSmooth === 'true';
-        if (smooth) {
-            const timing = element.dataset.scrollTiming || '0.2s';
-            element.style.transition = `transform ${timing} ease-out`;
-        } else {
-            element.style.transition = 'none';
-        }
-    });
-    
-    function getScrollSensitivity(elementScrollSpeed) {
-        const defaultSpeed = elementScrollSpeed || 300;
-        
-        if (window.innerWidth >= 1200) {
-            return defaultSpeed * 2.2;
-        } else if (window.innerWidth >= 1023) {
-            return defaultSpeed * 1.8;
-        } else {
-            return defaultSpeed;
-        }
+document.addEventListener("DOMContentLoaded", function () {
+  const scrollElements = document.querySelectorAll("[data-scroll-slide]");
+
+  // Get dynamic distance based on viewport size
+  function getDynamicMaxDistance(direction) {
+    if (direction === "left" || direction === "right") {
+      return window.innerWidth * 0.5; // half screen width
     }
-    
-    function moveScrollElements() {
-        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        const isDesktop = window.innerWidth >= 768;
-        
-        // Debug logging
-        if (scrollTop < 50) {
-            console.log('Window width:', window.innerWidth, 'Is desktop:', isDesktop, 'Scroll top:', scrollTop);
-        }
-        
-        if (isDesktop) {
-            const groupContainers = document.querySelectorAll('.we-all-strive, .for-greatness-lets');
-            
-            groupContainers.forEach(container => {
-                const allH1Elements = container.querySelectorAll('h1');
-                const scrollElements = container.querySelectorAll('[data-scroll-slide]');
-                
-                // Check if all h1 elements have scroll attributes
-                const allElementsHaveScrollAttrs = Array.from(allH1Elements).every(h1 => h1.hasAttribute('data-scroll-slide'));
-                
-                if (allH1Elements.length > 1 && allElementsHaveScrollAttrs && scrollElements.length > 0) {
-                    let groupDirection = 'right';
-                    let groupMaxDistance = 100;
-                    let groupScrollSensitivity = 300;
-                    let groupSpeedMultiplier = 1;
-                    
-                    const firstScrollElement = scrollElements[0];
-                    groupDirection = firstScrollElement.dataset.scrollSlide || 'right';
-                    groupMaxDistance = parseInt(firstScrollElement.dataset.scrollDistance) || 150;
-                    
-                    const baseScrollSpeed = parseInt(firstScrollElement.dataset.scrollSpeed) || 300;
-                    groupScrollSensitivity = getScrollSensitivity(baseScrollSpeed);
-                    
-                    let totalMultiplier = 0;
-                    scrollElements.forEach(element => {
-                        totalMultiplier += parseFloat(element.dataset.scrollMultiplier) || 1;
-                    });
-                    groupSpeedMultiplier = Math.max(totalMultiplier / scrollElements.length, 1);
-                    
-                    const baseProgress = Math.min(scrollTop / groupScrollSensitivity, 1);
-                    const adjustedProgress = Math.min(baseProgress * groupSpeedMultiplier, 1);
-                    const moveDistance = adjustedProgress * groupMaxDistance;
-                    
-                    let transform = '';
-                    switch(groupDirection.toLowerCase()) {
-                        case 'right':
-                            transform = `translateX(${moveDistance}px)`;
-                            break;
-                        case 'left':
-                            transform = `translateX(-${moveDistance}px)`;
-                            break;
-                        case 'up':
-                            transform = `translateY(-${moveDistance}px)`;
-                            break;
-                        case 'down':
-                            transform = `translateY(${moveDistance}px)`;
-                            break;
-                        default:
-                            transform = `translateX(${moveDistance}px)`;
-                    }
-                    
-                    allH1Elements.forEach(h1 => {
-                        h1.style.transform = transform;
-                        // Debug logging (remove in production)
-                        if (scrollTop < 100) {
-                            console.log('Group transform applied:', transform, 'to element:', h1.textContent);
-                        }
-                    });
-                }
-            });
-        }
-        
-        // Process individual scroll elements
-        scrollElements.forEach(element => {
-            // Skip if this element was handled by group logic
-            if (isDesktop && element.closest('.we-all-strive, .for-greatness-lets')) {
-                const container = element.closest('.we-all-strive, .for-greatness-lets');
-                const allH1Elements = container.querySelectorAll('h1');
-                const allElementsHaveScrollAttrs = Array.from(allH1Elements).every(h1 => h1.hasAttribute('data-scroll-slide'));
-                
-                if (allElementsHaveScrollAttrs) {
-                    return; // Skip individual processing if group handled it
-                }
-            }
-            
-            const direction = element.dataset.scrollSlide || 'right';
-            const maxDistance = parseInt(element.dataset.scrollDistance) || 150;
-            const baseScrollSpeed = parseInt(element.dataset.scrollSpeed) || 300;
-            const speedMultiplier = parseFloat(element.dataset.scrollMultiplier) || 1;
-            
-            const scrollSensitivity = getScrollSensitivity(baseScrollSpeed);
-            
-            const baseProgress = Math.min(scrollTop / scrollSensitivity, 1);
-            const adjustedProgress = Math.min(baseProgress * speedMultiplier, 1);
-            const moveDistance = adjustedProgress * maxDistance;
-            
-            let transform = '';
-            switch(direction.toLowerCase()) {
-                case 'right':
-                    transform = `translateX(${moveDistance}px)`;
-                    break;
-                case 'left':
-                    transform = `translateX(-${moveDistance}px)`;
-                    break;
-                case 'up':
-                    transform = `translateY(-${moveDistance}px)`;
-                    break;
-                case 'down':
-                    transform = `translateY(${moveDistance}px)`;
-                    break;
-                default:
-                    transform = `translateX(${moveDistance}px)`;
-            }
-            
-            element.style.transform = transform;
-            
-            // Debug logging (remove in production)
-            if (scrollTop < 100 && element.dataset.scrollSlide) {
-                console.log('Individual transform applied:', transform, 'to element:', element.textContent || element.innerText);
-            }
-        });
+    if (direction === "up" || direction === "down") {
+      return window.innerHeight * 0.5; // half screen height
     }
-    
-    window.addEventListener('scroll', moveScrollElements);
-    window.addEventListener('resize', moveScrollElements);
-    
-    // Initial call to set starting positions
-    moveScrollElements();
+    return 150; // fallback
+  }
+
+  function moveScrollElements() {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+    scrollElements.forEach((element) => {
+      const direction = element.dataset.scrollSlide || "right";
+      const speedMultiplier =
+        parseFloat(element.dataset.scrollMultiplier) || 1;
+
+      // Calculate how far to slide (relative to viewport & container)
+      const maxDistance = getDynamicMaxDistance(direction);
+
+      const container = element.closest("#landing") || document.body;
+      const containerHeight =
+        container.offsetHeight || window.innerHeight;
+
+      // Scroll progress relative to container
+      const baseProgress = Math.min(scrollTop / containerHeight, 1);
+      const adjustedProgress = Math.min(baseProgress * speedMultiplier, 1);
+
+      const moveDistance = adjustedProgress * maxDistance;
+
+      // Apply transform
+      let transform = "";
+      switch (direction.toLowerCase()) {
+        case "right":
+          transform = `translateX(${moveDistance}px)`;
+          break;
+        case "left":
+          transform = `translateX(-${moveDistance}px)`;
+          break;
+        case "up":
+          transform = `translateY(-${moveDistance}px)`;
+          break;
+        case "down":
+          transform = `translateY(${moveDistance}px)`;
+          break;
+      }
+
+      element.style.transform = transform;
+    });
+  }
+
+  // Bind events
+  window.addEventListener("scroll", moveScrollElements);
+  window.addEventListener("resize", moveScrollElements);
+
+  // Initial position
+  moveScrollElements();
+});
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  // Ensure all .animate elements inside #landing are visible on page load
+  const landingWords = document.querySelectorAll("#landing .animate");
+  landingWords.forEach(el => {
+    el.classList.add("visible");
+    el.style.transform = "none"; // Reset any scroll-slide transforms
+  });
 });
 
 
@@ -421,25 +390,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-
-
-
-// Demo controls - keeping these for development purposes but not auto-triggering
-function resetAnimations() {
-    const animateElements = document.querySelectorAll('.animate');
-    animateElements.forEach(el => {
-        el.classList.remove('visible');
-    });
-}
-
-function triggerAnimations() {
-    const animateElements = document.querySelectorAll('.animate');
-    animateElements.forEach(el => {
-        el.classList.add('visible');
-    });
-}
-
-// REMOVED: Auto-trigger animations - they now only trigger when in viewport
 
 
 
@@ -634,3 +584,75 @@ window.addEventListener('resize', updateSlide);
 
 // Initialize
 updateSlide();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function initializeNavbarScroll() {
+  const navbar = document.querySelector('.navbar');
+  const landing = document.getElementById('landing');
+
+  if (!navbar || !landing) return;
+
+  window.addEventListener('scroll', () => {
+    const landingHeight = landing.offsetHeight;
+    const triggerPoint = landingHeight * 0.5; // 50% of landing
+
+    if (window.scrollY > triggerPoint) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+  });
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  initializeNavigation();
+  initializeLogoShrink();
+  initializeNavbarScroll(); // add this
+});
