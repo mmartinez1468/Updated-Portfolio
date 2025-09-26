@@ -1478,7 +1478,7 @@ th, td {
             min-width: 288px;
             max-width: 830px;
             border-radius: 10px 10px 0 0;
-            outline: #bcbcbc64 .5px solid;
+            outline: #bcbcbc64 1px solid;
             border-bottom: 1px solid #BCBCBC;
             animation: pulse-bg 4s ease-in-out infinite;
         }
@@ -1673,7 +1673,7 @@ th, td {
             max-width: 830px;
             padding: 2rem 0;
             border-radius: 10px 10px 0 0;
-            outline: #bcbcbc64 .5px solid;
+            outline: #bcbcbc64 1px solid;
             border-bottom: 1px solid #BCBCBC;
         }
 
@@ -1846,7 +1846,7 @@ th, td {
             height: 255px;
             padding: 2rem 0;
             border-radius: 10px 10px 0 0;
-            outline: #bcbcbc64 .5px solid;
+            outline: #bcbcbc64 1px solid;
             border-bottom: 1px solid #BCBCBC;
         }
 
@@ -1995,7 +1995,7 @@ th, td {
             border-radius: 0 0 10px 10px;
             width: 100%;
             min-width: 288px;
-            outline: #bcbcbc64 .5px solid;
+            outline: #bcbcbc64 1px solid;
             position: relative;
         }
 
@@ -2105,7 +2105,7 @@ th, td {
             height: 255px;
             max-width: 830px;
             border-radius: 10px 10px 0 0;
-            outline: #bcbcbc64 .5px solid;
+            outline: #bcbcbc64 1px solid;
             border-bottom: 1px solid #BCBCBC;
             min-width: 288px;
         }
