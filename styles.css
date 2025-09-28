@@ -1604,7 +1604,7 @@ th, td {
             flex: 0 0 100%;
             max-width: 100%;
             box-sizing: border-box;
-            min-height: 400px;
+            min-height: 533px;
         }
 
         .experience-visual {
@@ -1618,20 +1618,32 @@ th, td {
 
         /*------- GOVERNORS STATE ILLUSTRATION -------*/
         .governors-scene {
-            display: flex;
-            justify-content: center;
-            align-items: flex-end;
-            gap: 30px;
-            background: linear-gradient(to top, #007bff 0%, #1A1A1A 100%);
-            width: 100%;
-            padding: 2rem 0;
-            min-width: 288px;
-            max-width: 830px;
-            border-radius: 10px 10px 0 0;
-            outline: #bcbcbc64 1px solid;
-            border-bottom: 1px solid #BCBCBC;
-            animation: pulse-bg 4s ease-in-out infinite;
-        }
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 30px;
+    background: linear-gradient(to top, #007bff 0%, #1A1A1A 100%);
+    background-size: 100% 200%; /* double the height to allow "movement" */
+    background-position: 0% 100%; /* start with blue at bottom */
+    animation: pulse-bg 4s ease-in-out infinite;
+    width: 100%;
+    padding: 2rem 0;
+    min-width: 288px;
+    max-width: 830px;
+    border-radius: 10px 10px 0 0;
+    outline: #bcbcbc64 1px solid;
+    border-bottom: 1px solid #BCBCBC;
+}
+
+
+        @keyframes pulse-bg {
+    0%, 100% {
+        background-position: 0% 80%; /* blue at bottom */
+    }
+    50% {
+        background-position: 0% 0%; /* blue pulsed upward */
+    }
+}
 
 
         /* Governors State Screen */
@@ -1817,6 +1829,9 @@ th, td {
             align-items: center;
             gap: 30px;
             background: linear-gradient(to top, #007bff 0%, #1A1A1A 100%);
+            background-size: 100% 200%; /* double the height to allow "movement" */
+            background-position: 0% 100%; /* start with blue at bottom */
+            animation: pulse-bg 4s ease-in-out infinite;
             width: 100%;
             height: 255px;
             min-width: 288px;
@@ -1985,12 +2000,10 @@ th, td {
             align-items: center;
             gap: 30px;
             min-width: 288px;
-            /* Gradient background */
-            background: linear-gradient(270deg, #007bff, #003a77, #007bff);
-            background-size: 800% 800%;
-
-            /* Smooth infinite animation */
-            animation: gradientShift 10s linear infinite;
+            background: linear-gradient(to top, #f8981d 0%, #1A1A1A 100%);
+            background-size: 100% 200%; /* double the height to allow "movement" */
+            background-position: 0% 100%; /* start with blue at bottom */
+            animation: pulse-bg 4s ease-in-out infinite;
 
             width: 100%;
             height: 255px;
@@ -2251,7 +2264,7 @@ th, td {
             justify-content: center;
             align-items: center;
             gap: 30px;
-            background: linear-gradient(to top, #007bff 0%, #1A1A1A 100%);
+            background: linear-gradient(to top, #035545 0%, #1A1A1A 100%);
             width: 100%;
             height: 255px;
             max-width: 830px;
