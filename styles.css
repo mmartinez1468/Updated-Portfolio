@@ -597,7 +597,143 @@ th, td {
 .slow-delay-1000 { transition-delay: 1s !important; }
 
 
+/* ==========================================================================
+   3. GRADIENT BACKGROUND
+   ========================================================================== */
 
+/* Plasma Background Container */
+.plasma-wrapper {
+    position: absolute;
+    inset: 0; /* shorthand for top:0; right:0; bottom:0; left:0 */
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    filter: blur(300px);
+    z-index: 0; /* put behind section content */
+    pointer-events: none; /* so it won’t block clicks */
+}
+
+/* Base Gradient Styles */
+.gradient {
+  position: absolute;
+  border-radius: 100%;
+  opacity: 1;
+  mix-blend-mode: screen;
+  animation-iteration-count: infinite;
+  animation-timing-function: cubic-bezier(0.1, 0, 0.9, 1);
+}
+
+/* Individual Gradient Elements */
+.gradient-1 {
+    background: rgb(0, 123, 255);
+    width: 700px;
+    height: 700px;
+    animation-duration: 8s;
+    opacity: 1;
+    left: 60%;
+    top: 40%;
+    z-index: -2;
+    animation-name: animation-gradient-1;
+}
+
+.gradient-2 {
+    background: rgb(2, 77, 156);
+    width: 600px;
+    height: 600px;
+    animation-duration: 10s;
+    opacity: 1;
+    left: 40%;
+    top: 60%;
+    z-index: -1;
+    animation-name: animation-gradient-2;
+}
+
+.gradient-3 {
+    background: rgb(0, 0, 0);
+    width: 500px;
+    height: 500px;
+    animation-duration: 11s;
+    opacity: 1;
+    left: 50%;
+    top: 50%;
+    z-index: -3;
+    animation-name: animation-gradient-3;
+}
+
+/* Gradient Animations */
+@keyframes animation-gradient-1 {
+    0% { transform: translateY(-50%) translateX(-50%) rotate(-20deg) translateX(20%); }
+    25% { transform: translateY(-50%) translateX(-50%) skew(-15deg, -15deg) rotate(80deg) translateX(30%); }
+    50% { transform: translateY(-50%) translateX(-50%) rotate(180deg) translateX(25%); }
+    75% { transform: translateY(-50%) translateX(-50%) skew(15deg, 15deg) rotate(240deg) translateX(15%); }
+    100% { transform: translateY(-50%) translateX(-50%) rotate(340deg) translateX(20%); }
+}
+
+@keyframes animation-gradient-2 {
+    0% { transform: translateY(-50%) translateX(-50%) rotate(40deg) translateX(-20%); }
+    25% { transform: translateY(-50%) translateX(-50%) skew(15deg, 15deg) rotate(110deg) translateX(-5%); }
+    50% { transform: translateY(-50%) translateX(-50%) rotate(210deg) translateX(-35%); }
+    75% { transform: translateY(-50%) translateX(-50%) skew(-15deg, -15deg) rotate(300deg) translateX(-10%); }
+    100% { transform: translateY(-50%) translateX(-50%) rotate(400deg) translateX(-20%); }
+}
+
+@keyframes animation-gradient-3 {
+    0% { transform: translateY(-50%) translateX(-50%) translateX(-15%) translateY(10%); }
+    20% { transform: translateY(-50%) translateX(-50%) translateX(20%) translateY(-30%); }
+    40% { transform: translateY(-50%) translateX(-50%) translateX(-25%) translateY(-15%); }
+    60% { transform: translateY(-50%) translateX(-50%) translateX(30%) translateY(20%); }
+    80% { transform: translateY(-50%) translateX(-50%) translateX(5%) translateY(35%); }
+    100% { transform: translateY(-50%) translateX(-50%) translateX(-15%) translateY(10%); }
+}
+
+/* Responsive Gradient Adjustments */
+@media (max-width: 768px) {
+    .plasma-wrapper {
+        filter: blur(150px) saturate(1.3) brightness(1.2);
+    }
+    
+    .gradient-1 {
+        width: 500px;
+        height: 500px;
+        opacity: 0.8;
+    }
+    
+    .gradient-2 {
+        width: 450px;
+        height: 450px;
+        opacity: 0.7;
+    }
+    
+    .gradient-3 {
+        width: 400px;
+        height: 400px;
+        opacity: 0.4;
+    }
+}
+
+@media (max-width: 480px) {
+    .plasma-wrapper {
+        filter: blur(100px);
+    }
+    
+    .gradient-1 {
+        opacity: 0.9;
+        width: 400px;
+        height: 400px;
+    }
+    
+    .gradient-2 {
+        opacity: 0.8;
+        width: 350px;
+        height: 350px;
+    }
+    
+    .gradient-3 {
+        opacity: 0.5;
+        width: 300px;
+        height: 300px;
+    }
+}
 
 
 
@@ -801,6 +937,11 @@ th, td {
     padding: .5rem 1rem;
 }
 
+.navbar.scrolled .nav-menu.active {
+  height: calc(100vh - clamp(40px, 12vw, 50px));
+  top: 50px;
+}
+
 .nav-container {
     width: 100%;
     margin: 0 auto;
@@ -971,6 +1112,10 @@ th, td {
         display: block;
     }
 
+    .navbar.scrolled .nav-menu.active {
+        top: 75px;
+    }
+
     .navbar {
         transition: all 1s ease;
     }
@@ -1000,6 +1145,11 @@ th, td {
     .nav-container {
         justify-content: space-between;
         padding: 0rem 3rem;
+    }
+
+    .navbar.scrolled .nav-menu.active {
+        height: unset;
+        top: 50px;
     }
 
     .nav-logo {
@@ -2033,7 +2183,8 @@ th, td {
     opacity 0.4s ease;
   list-style-type: circle;
   padding-top: 1rem;
-
+            transform: translateY(-5%); /* Initial position for slide-down */
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
         .experience-info-tasks li {
@@ -2235,7 +2386,7 @@ th, td {
     justify-content: center;
     align-items: center;
     gap: 2rem;
-    margin-top: 20px;
+    margin-top: 2rem;
     position: relative;
 }
 
@@ -2357,12 +2508,27 @@ th, td {
         }
 
         .experience-header {
-            padding-right: 8rem;
-            padding-bottom: 2rem;
-            display: flex;
-            text-align: end;
-            width: 100%;
-        }
+        padding-right: 8rem;
+        padding-bottom: 2rem;
+        display: flex;
+        text-align: end;
+        width: 100%;
+        position: relative;
+    }
+
+    .experience-header::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: calc(100% - 550px);
+        margin-left: 3rem;
+        margin-top: -.75rem;
+        height: 2px;
+        background: #007bff;
+        border-radius: 2px;
+    }
 
         .experience-header h2 {
             margin-left: auto;
@@ -2561,6 +2727,15 @@ th, td {
             font-size: var(--fontheader1248);
         }
 
+        .experience-header::before {
+        width: calc(100% - 700px);
+        margin-left: 3rem;
+        margin-top: -.75rem;
+        height: 2px;
+        background: #007bff;
+        border-radius: 2px;
+    }
+
         .experience-info-position span {
             font-size: 1.25rem;
         }
@@ -2579,9 +2754,6 @@ th, td {
         }
     }
 
-    @media screen and (min-width: 1440px) {
-        
-    }
 
 
 
@@ -3155,8 +3327,9 @@ th, td {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    background: black;
     padding-top: 5rem;
+    position: relative;
+    overflow: hidden;
 }
 
 .contact-intro {
@@ -3168,6 +3341,7 @@ th, td {
     align-items: center;
     padding-bottom: 2rem;
     padding: clamp(3rem,calc(3.2608695652vw + 2.347826087rem),4.875rem);
+    z-index: 100;
 }
 
 .contact-intro h2 {
@@ -3563,7 +3737,7 @@ th, td {
    13. FOOTER
 ========================================================================== */
 .footer-section {
-          background: #151414;
+          background: #131313;
           position: relative;
         }
         .footer-container {
@@ -3574,7 +3748,7 @@ th, td {
           padding-bottom: 1rem;
         }
         .single-cta svg {
-          color: #4b0082;
+          color: #007bff;
           height: 25px;
           float: left;
           margin-top: 5px;
@@ -3668,7 +3842,7 @@ th, td {
           bottom: -15px;
           height: 2px;
           width: 50px;
-          background: #4b0082;
+          background: #007bff;
         }
         .footer-widget ul li {
           display: inline-block;
@@ -3677,7 +3851,7 @@ th, td {
           margin-bottom: 12px;
         }
         .footer-widget ul li a:hover{
-          color: #4b0082;
+          color: #007bff;
         }
         .footer-widget ul li a {
           color: #878787;
@@ -3698,9 +3872,9 @@ th, td {
         .subscribe-form button {
             position: absolute;
             right: 0;
-            background: #4b0082;
+            background: #007bff;
             padding: 13px 20px;
-            border: 1px solid #4b0082;
+            border: 1px solid #007bff;
             top: 0;
             cursor: pointer;
         }
@@ -3720,7 +3894,7 @@ th, td {
           text-align: center;
         }
         .copyright-text p a{
-          color: #4b0082;
+          color: #007bff;
           text-decoration: none;
         }
         .footer-menu li {
@@ -3728,7 +3902,7 @@ th, td {
           margin-left: 20px;
         }
         .footer-menu li:hover a{
-          color: #4b0082;
+          color: #007bff;
         }
         .footer-menu li a {
           font-size: 14px;
