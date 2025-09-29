@@ -2813,7 +2813,7 @@ th, td {
 
 
 #aboutMe {
-    padding: clamp(3rem,calc(3.2608695652vw + 2.347826087rem),4.875rem);
+    padding: clamp(3rem, calc(3.2608695652vw + 2.347826087rem), 4.875rem) 1rem;
     background-color: rgb(34,34,34);
 }
 
@@ -2893,7 +2893,9 @@ th, td {
 
 
 @media screen and (min-width: 550px) {
-
+    #aboutMe {
+        padding: clamp(3rem,calc(3.2608695652vw + 2.347826087rem),4.875rem);
+    }
     .about-container-wrapper {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
@@ -3049,7 +3051,7 @@ th, td {
 
 
 #myPortfolio {
-    padding: clamp(3rem,calc(3.2608695652vw + 2.347826087rem),4.875rem);
+   padding: clamp(3rem, calc(3.2608695652vw + 2.347826087rem), 4.875rem) 1rem;
 }
 
 .portfolio-intro {
@@ -3220,7 +3222,11 @@ th, td {
 
 
 
-
+@media screen and (min-width: 550px) {
+    #myPortfolio {
+        padding: clamp(3rem,calc(3.2608695652vw + 2.347826087rem),4.875rem);
+    }
+}
 
 
 
