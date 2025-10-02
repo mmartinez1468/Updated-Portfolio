@@ -1594,7 +1594,7 @@ th, td {
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    height: 300px;
+    height: 325px;
     transition: bottom 0.05s linear;
     will-change: bottom;
     display: flex;
