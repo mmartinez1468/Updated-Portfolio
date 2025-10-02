@@ -468,11 +468,114 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+// =====================================================================
+// SCROLL EXPAND SECTION (CTA)
+// =====================================================================
 
+const section = document.getElementById('scrollExpandSection');
+const redBg = document.getElementById('scrollExpandRedBg');
+const overlay = document.getElementById('scrollExpandOverlay');
+const imageOverlay = document.getElementById('scrollExpandImageOverlay');
+const navDots = document.querySelectorAll('.nav-dot');
+const imageWithIcons = document.querySelectorAll('.image-with-icons');
+const contentSets = document.querySelectorAll('.content-set');
 
+// Prevent initial animation glitch
+let isInitialized = false;
 
+function updateScrollExpandEffect() {
+    const rect = section.getBoundingClientRect();
+    const windowHeight = window.innerHeight;
+    
+    let progress = 0;
+    
+    if (rect.top < windowHeight && rect.bottom > 0) {
+        const scrolledIntoSection = windowHeight - rect.top;
+        const totalScrollDistance = rect.height;
+        progress = Math.max(0, Math.min(1, scrolledIntoSection / totalScrollDistance));
+    } else if (rect.bottom <= 0) {
+        progress = 1;
+    }
+    
+    const minScale = 0.1;
+    const maxScale = 1;
+    const scale = minScale + (progress * (maxScale - minScale));
+    
+    redBg.style.transform = `scale(${scale})`;
+    
+    if (progress >= 0.5) {
+        const divProgress = (progress - 0.5) / 0.5;
+        const bottomValue = -400 + (divProgress * 400);
+        overlay.style.bottom = `${bottomValue}px`;
+        
+        const imageBottomValue = bottomValue + 300;
+        imageOverlay.style.bottom = `${imageBottomValue}px`;
+        imageOverlay.style.opacity = divProgress;
+        
+        // Initialize animations only after first scroll
+        if (!isInitialized && divProgress > 0.1) {
+            isInitialized = true;
+            imageWithIcons.forEach(img => img.classList.add('initialized'));
+        }
+    } else {
+        overlay.style.bottom = '-400px';
+        imageOverlay.style.bottom = '-100px';
+        imageOverlay.style.opacity = '0';
+    }
+}
 
+function switchImage(index) {
+    // Apply fast slide down animation to currently active image
+    imageWithIcons.forEach(imgSet => {
+        if (imgSet.classList.contains('active') && imgSet.classList.contains('visible')) {
+            // Remove visible to trigger slide down
+            imgSet.classList.remove('visible');
+            
+            // After slide down animation completes, hide it
+            setTimeout(() => {
+                imgSet.classList.remove('active');
+                imgSet.classList.add('hidden');
+            }, 400);
+        } else if (!imgSet.classList.contains('hidden')) {
+            imgSet.classList.add('hidden');
+            imgSet.classList.remove('active', 'visible');
+        }
+    });
+    
+    // Activate the selected image with slide up animation
+    setTimeout(() => {
+        imageWithIcons[index].classList.remove('hidden');
+        imageWithIcons[index].classList.add('active');
+        
+        // Trigger slide up animation
+        setTimeout(() => {
+            imageWithIcons[index].classList.add('visible');
+        }, 50);
+    }, 450);
 
+    // Update nav dots
+    navDots.forEach(dot => dot.classList.remove('active'));
+    navDots[index].classList.add('active');
+
+    // Update content sets
+    contentSets.forEach(set => {
+        set.classList.remove('active');
+        set.classList.add('hidden');
+    });
+    contentSets[index].classList.remove('hidden');
+    contentSets[index].classList.add('active');
+}
+
+// Add click handlers to nav dots
+navDots.forEach(dot => {
+    dot.addEventListener('click', () => {
+        const index = parseInt(dot.getAttribute('data-index'));
+        switchImage(index);
+    });
+});
+
+window.addEventListener('scroll', updateScrollExpandEffect);
+updateScrollExpandEffect();
 
 
 
