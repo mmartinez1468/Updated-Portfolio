@@ -1,3 +1,38 @@
+    // Use DOMContentLoaded instead of window.load to start faster
+    document.addEventListener('DOMContentLoaded', () => {
+      const loadingScreen = document.getElementById('loadingScreen');
+      const body = document.body;
+      
+      setTimeout(() => {
+        loadingScreen.classList.add('split');
+        
+        setTimeout(() => {
+          loadingScreen.classList.add('hidden');
+          body.classList.remove('loading');
+          
+          // Remove from DOM completely after fade out
+          setTimeout(() => {
+            if (loadingScreen && loadingScreen.parentNode) {
+              loadingScreen.parentNode.removeChild(loadingScreen);
+            }
+          }, 300);
+        }, 800);
+      }, 1200);
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function initializeNavigation() {
     const hamburger = document.getElementById('hamburger');
     const navMenu = document.getElementById('navMenu');

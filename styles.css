@@ -609,6 +609,111 @@ th, td {
 
 
 
+body.loading {
+      overflow: hidden;
+    }
+
+    .loading-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #131313;
+      z-index: 9999;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      pointer-events: none;
+    }
+
+    .logo-wrapper {
+      position: relative;
+      width: 300px;
+      height: 150px;
+      animation: fadeIn 0.5s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.8); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .logo-half {
+      position: absolute;
+      width: 150px;
+      height: 150px;
+      top: 0;
+      overflow: hidden;
+    }
+
+    .logo-left {
+      left: 0;
+    }
+
+    .logo-right {
+      right: 0;
+    }
+
+    /* Your logo image */
+    .logo-content {
+      width: 300px;
+      height: 150px;
+      background: url('images/website-logo.png') no-repeat center center;
+      background-size: contain;
+    }
+
+    /* Position the logo content so left half shows left side, right half shows right side */
+    .logo-left .logo-content {
+      position: absolute;
+      left: 0;
+    }
+
+    .logo-right .logo-content {
+      position: absolute;
+      right: 0;
+    }
+
+    /* Split animation */
+    .loading-screen.split .logo-left {
+      animation: slideLeft 0.8s ease-in-out forwards;
+    }
+
+    .loading-screen.split .logo-right {
+      animation: slideRight 0.8s ease-in-out forwards;
+    }
+
+    @keyframes slideLeft {
+      to {
+        transform: translateX(-100vw);
+      }
+    }
+
+    @keyframes slideRight {
+      to {
+        transform: translateX(100vw);
+      }
+    }
+
+    /* Hide loading screen */
+    .loading-screen.hidden {
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease-out, visibility 0.3s ease-out;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* ==========================================================================
    3. SOCIAL MEDIA LINKS
 ========================================================================== */
