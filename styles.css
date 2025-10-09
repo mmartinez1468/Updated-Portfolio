@@ -1615,21 +1615,21 @@ body.loading {
 }
 
 .float-icon.icon-1 {
-    top: 40%;
+    top: 45%;
     left: 25%;
     animation-delay: 0s;
     animation: spin 10s linear infinite;
 }
 
 .float-icon.icon-2 {
-    top: 30%;
+    top: 35%;
     left: 35%;
     animation-delay: 0.5s;
     animation: float-left-right 7s ease-in-out infinite;
 }
 
 .float-icon.icon-3 {
-    bottom: 30%;
+    bottom: 25%;
     left: 20%;
     animation-delay: 1s;
 }
