@@ -134,7 +134,6 @@ function initializeNavigation() {
         if (navMenu) navMenu.classList.remove('active');
     }
 }
-
 // =====================================================================
 // NAVBAR LOGO SHRINK EFFECT
 // =====================================================================
@@ -163,18 +162,6 @@ function initializeLogoShrink() {
         }
     });
 }
-
-
-
-
-
-
-
-
-
-
-
-
 document.addEventListener("DOMContentLoaded", () => {
     initializeNavigation();
     initializeLogoShrink();
